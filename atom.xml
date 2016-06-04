@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[蔡永坚的博客]]></title>
-  <link href="http://caisweet.github.io/caiyongjian/atom.xml" rel="self"/>
-  <link href="http://caisweet.github.io/caiyongjian/"/>
-  <updated>2016-06-04T22:45:16+08:00</updated>
-  <id>http://caisweet.github.io/caiyongjian/</id>
+  <link href="http://www.caiyongjian.net/atom.xml" rel="self"/>
+  <link href="http://www.caiyongjian.net/"/>
+  <updated>2016-06-04T22:54:40+08:00</updated>
+  <id>http://www.caiyongjian.net/</id>
   <author>
     <name><![CDATA[]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[写给朋友们的话]]></title>
-    <link href="http://caisweet.github.io/caiyongjian/14650338135173.html"/>
+    <link href="http://www.caiyongjian.net/14650338135173.html"/>
     <updated>2016-06-04T17:50:13+08:00</updated>
-    <id>http://caisweet.github.io/caiyongjian/14650338135173.html</id>
+    <id>http://www.caiyongjian.net/14650338135173.html</id>
     <content type="html"><![CDATA[
 <p>时间它带走了我们太多东西了，<br/>
 我甚至不知道在下一个转角处，<br/>
@@ -54,9 +54,9 @@
   
   <entry>
     <title type="html"><![CDATA[断网]]></title>
-    <link href="http://caisweet.github.io/caiyongjian/14650337571918.html"/>
+    <link href="http://www.caiyongjian.net/14650337571918.html"/>
     <updated>2016-06-04T17:49:17+08:00</updated>
-    <id>http://caisweet.github.io/caiyongjian/14650337571918.html</id>
+    <id>http://www.caiyongjian.net/14650337571918.html</id>
     <content type="html"><![CDATA[
 <h2 id="toc_0">2016年05月11日</h2>
 
@@ -106,9 +106,9 @@
   
   <entry>
     <title type="html"><![CDATA[猫]]></title>
-    <link href="http://caisweet.github.io/caiyongjian/14650336173518.html"/>
+    <link href="http://www.caiyongjian.net/14650336173518.html"/>
     <updated>2016-06-04T17:46:57+08:00</updated>
-    <id>http://caisweet.github.io/caiyongjian/14650336173518.html</id>
+    <id>http://www.caiyongjian.net/14650336173518.html</id>
     <content type="html"><![CDATA[
 <p>早上上完课，宿舍来了一只猫。初看以为是全黑，细看下巴胸口和脚踝是白的。<br/>
 猜测是从对面楼一跃而来的吧，像离家出走一样。<br/>
@@ -121,9 +121,9 @@
   
   <entry>
     <title type="html"><![CDATA[一切只需十分钟的专注 —— Andy Puddicombe]]></title>
-    <link href="http://caisweet.github.io/caiyongjian/14649660620880.html"/>
+    <link href="http://www.caiyongjian.net/14649660620880.html"/>
     <updated>2016-06-03T23:01:02+08:00</updated>
-    <id>http://caisweet.github.io/caiyongjian/14649660620880.html</id>
+    <id>http://www.caiyongjian.net/14649660620880.html</id>
     <content type="html"><![CDATA[
 <p>上一次完全放空是什么时候？只要十分钟完全的放空，什么都不想，什么都不做。</p>
 
@@ -145,9 +145,9 @@
   
   <entry>
     <title type="html"><![CDATA[你有拖延症吗？ 续集 —— Adam Grant]]></title>
-    <link href="http://caisweet.github.io/caiyongjian/14649659042177.html"/>
+    <link href="http://www.caiyongjian.net/14649659042177.html"/>
     <updated>2016-06-03T22:58:24+08:00</updated>
-    <id>http://caisweet.github.io/caiyongjian/14649659042177.html</id>
+    <id>http://www.caiyongjian.net/14649659042177.html</id>
     <content type="html"><![CDATA[
 <p>演讲者是个拖延症相反的人，他是个提前症患者。习惯很早就把事情都干完。直到他遇到一个团队希望他投资，这个团队进度很慢，而且留有后路，一切慢悠悠。后来他们成功了，才后悔没有投资。<br/>
 所以演讲者发现，创新者，不止有好主意，而且会改变世界。一面研究他们的特征：<br/>
@@ -172,9 +172,9 @@
   
   <entry>
     <title type="html"><![CDATA[你有拖延症吗？ —— Tim Urban]]></title>
-    <link href="http://caisweet.github.io/caiyongjian/14649647799901.html"/>
+    <link href="http://www.caiyongjian.net/14649647799901.html"/>
     <updated>2016-06-03T22:39:39+08:00</updated>
-    <id>http://caisweet.github.io/caiyongjian/14649647799901.html</id>
+    <id>http://www.caiyongjian.net/14649647799901.html</id>
     <content type="html"><![CDATA[
 <p>演讲者觉得自己是个拖延症挺严重的人，他觉得，如果把我们的脑海比喻成一艘船。然后都有一个理性决策人(Rational Decision-Maker)，区别在于有拖延症的人脑海里有一个及时行乐的猴子(Instant Gratification Monkey)，只注重简单和快乐。每当遇到一个有期限的事情。理性决策人想先做工作的时候，猴子跳出来说不如我们先看个综艺节目吧！然后就夺走了方向盘。</p>
 
@@ -203,9 +203,9 @@
   
   <entry>
     <title type="html"><![CDATA[晚安的话]]></title>
-    <link href="http://caisweet.github.io/caiyongjian/14649438014608.html"/>
+    <link href="http://www.caiyongjian.net/14649438014608.html"/>
     <updated>2016-06-03T16:50:01+08:00</updated>
-    <id>http://caisweet.github.io/caiyongjian/14649438014608.html</id>
+    <id>http://www.caiyongjian.net/14649438014608.html</id>
     <content type="html"><![CDATA[
 <p>越是对你而言重要的人，越是近在你身旁。—— 晚安的话 (1) 2013年3月22日 <br/>
 总是害怕老了回忆太少，所以越要珍惜时间。—— 晚安的话 (2) 2013年3月23日 <br/>
