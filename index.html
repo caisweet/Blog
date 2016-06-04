@@ -8,17 +8,23 @@
   蔡永坚的博客
   
   </title>
- <meta name="description" content="">
- <link href="atom.xml" rel="alternate" title="蔡永坚的博客" type="application/atom+xml">
+  
+  
+  <link href="atom.xml" rel="alternate" title="蔡永坚的博客" type="application/atom+xml">
     <link rel="stylesheet" href="asset/css/foundation.min.css" />
     <link rel="stylesheet" href="asset/css/docs.css" />
-
     <script src="asset/js/vendor/modernizr.js"></script>
     <script src="asset/js/vendor/jquery.js"></script>
-    <script src="asset/highlightjs/highlight.pack.js"></script>
-    <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
-    <script>hljs.initHighlightingOnLoad();</script>
-    
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:caisweet.github.io/caiyongjian ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
   </head>
   <body class="antialiased hide-extras">
     
@@ -28,11 +34,30 @@
 
 <nav class="top-bar docs-bar hide-for-small" data-topbar>
 
-<div id="header">
-    <h1><a href="index.html">蔡永坚的博客</a></h1>
-</div>
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        <li id="menu_item_index"><a href="index.html">HOME</a></li>
+        <li id="menu_item_archives"><a href="archives.html">Archives</a></li>
+        <li id="menu_item_about"><a href="about.html">ABOUT</a></li>
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
 
 </nav>
+
         <nav class="tab-bar show-for-small">
   <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
     <span> &nbsp; 蔡永坚的博客</span>
@@ -41,74 +66,47 @@
 
 <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
-      <li><a href="index.html">Home</a></li>
-      
-        <li class="divider"></li>
-        <li><label>生活</label></li>
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
 
-          
-            <li><a title="写给朋友们的话" href="14650338135173.html">写给朋友们的话</a></li>
-          
-            <li><a title="断网" href="14650337571918.html">断网</a></li>
-          
-            <li><a title="猫" href="14650336173518.html">猫</a></li>
-          
-            <li><a title="晚安的话" href="14649438014608.html">晚安的话</a></li>
-          
+    <li><label>Categories</label></li>
 
-      
-        <li class="divider"></li>
-        <li><label>观后感</label></li>
+        
+            <li><a href="life.html">生活</a></li>
+        
+            <li><a href="viewpoint.html">观后感</a></li>
+         
 
-          
-
-      
       </ul>
     </aside>
 
 <a class="exit-off-canvas" href="#"></a>
 
+
         <section id="main-content" role="main" class="scroll-container">
+        
+       
 
-          <div class="row">
-            <div class="large-3 medium-3 columns">
-              <div class="hide-for-small">
-                <div class="sidebar">
-                <nav>
-                  <ul id="side-nav" class="side-nav">
-
-                    
-                      <li class="side-title"><span>生活</span></li>
+ <script type="text/javascript">
+	$(function(){
+		$('#menu_item_index').addClass('is_active');
+	});
+</script>
+<div class="row">
+	<div class="large-8 medium-8 columns">
+		<div class="markdown-body home-categories">
+		
+			<div class="article">
+                <a class="clearlink" href="14650338135173.html">
+                
+                  <h1>写给朋友们的话</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
                         
-                          <li><a title="写给朋友们的话" href="14650338135173.html">写给朋友们的话</a></li>
-                        
-                          <li><a title="断网" href="14650337571918.html">断网</a></li>
-                        
-                          <li><a title="猫" href="14650336173518.html">猫</a></li>
-                        
-                          <li><a title="晚安的话" href="14649438014608.html">晚安的话</a></li>
-                        
-
-                    
-                      <li class="side-title"><span>观后感</span></li>
-                        
-
-                    
-                  </ul>
-                </nav>
-                </div>
-              </div>
-            </div>
-            <div class="large-9 medium-9 columns">
-
- 
-
-
-	
-		<div class="markdown-body">
-		<h1>写给朋友们的话</h1>
-
-		<p>时间它带走了我们太多东西了，<br/>
+                        	<p>时间它带走了我们太多东西了，<br/>
 我甚至不知道在下一个转角处，<br/>
 又有什么离我而去了。<br/>
 幸好，我知道有一群人， <br/>
@@ -138,54 +136,376 @@
 <p>背景音乐：<br/>
 <a href="http://music.163.com/#/song?id=375184">http://music.163.com/#/song?id=375184</a></p>
 
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/6/4</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='life.html'>生活</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
 
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14650337571918.html">
+                
+                  <h1>断网</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">2016年05月11日</h2>
+
+<p>其实，在一群计算机专业的学生宿舍中一起断网。有一种很特殊的感觉，像是集体过节？不知道该如何形容网络对计算机专业学生的重要性，我经常戏谑称之为程序员的基本人权之一。关于断网的严重性，一会再提。不过更有趣的是，断网之后可以看到许多人不同的一面。当你习惯了一丝不变的生活时，突然把你撞开习惯。比如，阿乐在发呆，宿友看国语版的《疯狂动物城》，他们去打球，我明天晚上想去踢球。<br/>
+幸亏今晚我有存货，这样的心情看《蝙蝠侠：黑暗骑士》。别有一番滋味。以前一直听人说希斯·莱杰演得好，我只看过《断背山》，知道有这个演员。现在终于明白，一个好的演员，让你觉得他就是那个角色，而不是一个演员。电影很长，剧情却一点也没让我感觉到拖沓。无不在考验人性，光明和黑暗只是一线之隔。生死别离也是，毫秒之间。</p>
+
+<h2 id="toc_1">运气</h2>
+
+<p>想用手机开个热点给电脑还让我左中右为难了许久，不过移动卡空有那么多流量，在学校周遭的信号一直不好，不知道他们出了多少钱跟学校合作却没时间覆盖网络啊。电信卡流量真贵，联通倒是便宜了，服务却没跟上。然后种种因素结合起来，不管面对什么问题，不可能准备齐当才开始的。都留点空间来失败，来成功？这个观点在练习两次之后直接路考，和坐票晚点一小时来的来到广州，没吃午饭直接比赛更加深有体会。在付出和回报的比例上，运气这东西真是不可理喻的。</p>
+
+<h2 id="toc_2">陪伴</h2>
+
+<p>关于陪伴家人，更直接的一次体会来自2014年在昆明西山。不知道是听谁说的亦或是自己灵感？那时就脱口而出，这地方来一次少一次了，多仔细看看。我回来后，想来想去，这辈子也许就去这一次了。如果我能一直这样想，难不倒哪天积怨太深，就多去一次，就为了西山。毕竟，我一直坚信</p>
+
+<blockquote>
+<p>念念不忘，必有回响。</p>
+</blockquote>
+
+<p>所以陪伴家人也一样，小时候天天见到，总不会觉得有什么差别。然后你到了远离家乡的时候，一年数着次数回家，不在家的时间开始远远超过在家的。</p>
+
+<h2 id="toc_3">愧疚</h2>
+
+<p>其实关于这件事，感性上我觉得自己是有原罪的。所以最近很喜欢张枣的《镜中》。幸好，现实往前走了一步。心才被放下，顿时觉得无比轻松。 关于这，精神洁癖确实帮了我不少。以前一直以为这是缺点来着，作为自我保护意识却避免了多少二次伤害。</p>
+
+<blockquote>
+<p>只要想起一生中后悔的事 <br/>
+梅花便落满了南山</p>
+
+<h2 id="toc_4">改变</h2>
+</blockquote>
+
+<p>其实这方面我挺顺其自然的，说白就是懒。记忆会被时间偷走，日记不会？东西会被不小心拿走，意义不会？密码会被我的你改变，输入法不会？其实就在写这篇文字的时候，13727922163打起来还是空号。哪一天打着打着就打通了，就为了一句不好意思打错了。</p>
+
+<h2 id="toc_5">结语</h2>
+
+<p>其实我想表达的就是，断网对计算机专业的打击。请善待计算机专业的朋友，因为断了网，他们什么事也干不了。我也被逼出了这篇文字，因为实在无聊透顶。最后以喜欢的作家一段文字结尾。</p>
+
+<blockquote>
+<p>通过写作可以改变自我，这就说，真正能教我们如何写作的，却是写作本身。—— 王小波</p>
+</blockquote>
+
+<p>写时所听：<br/>
+<a href="http://music.163.com/#/song?id=410710798">http://music.163.com/#/song?id=410710798</a></p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/6/4</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='life.html'>生活</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14650336173518.html">
+                
+                  <h1>猫</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>早上上完课，宿舍来了一只猫。初看以为是全黑，细看下巴胸口和脚踝是白的。<br/>
+猜测是从对面楼一跃而来的吧，像离家出走一样。<br/>
+它不怕我，我一开始移动怕它。后来习惯了，倒也亲近起来。<br/>
+只是在夜晚它总是在窗口徘徊，也许是想家了吧。<br/>
+隔天早上，再也没有见过它。它一往直前，奋不顾身了吧。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/6/4</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='life.html'>生活</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14649660620880.html">
+                
+                  <h1>一切只需十分钟的专注 —— Andy Puddicombe</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>上一次完全放空是什么时候？只要十分钟完全的放空，什么都不想，什么都不做。</p>
+
+<p>冥想：<br/>
+每个人面对压力的处理方式不同：有的投身于工作，希望分心；有的求助于家人；有的自暴自弃。</p>
+
+<p>演讲者觉得冥想的重点在于不陷入自己的想法中，如何集中注意力，如何专注，更不容易分心。更好地活在当下，我们在世上的时间不长，却花了一半的时间在思考。让自己不开心，这很不值得。<br/>
+有时候会太过专注，然后顾此失彼。找一种平衡，专注的放松。<br/>
+冥想提供的是一个机会，退后一步，从不同的角度看。什么事情是不一样，我们不能改变它，但是我们可以改变怎样来感受它。</p>
+
+<p>思考：<br/>
+每天花十分钟来冥想，退后一步，从不同的角度来看待身边的事物。</p>
+
+<p>视频链接：<br/>
+<a href="http://open.163.com/movie/2016/4/C/K/MBJEDVIOI_MBJEE9UCK.html">http://open.163.com/movie/2016/4/C/K/MBJEDVIOI_MBJEE9UCK.html</a></p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/6/3</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='ted.html'>TED</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14649659042177.html">
+                
+                  <h1>你有拖延症吗？ 续集 —— Adam Grant</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>演讲者是个拖延症相反的人，他是个提前症患者。习惯很早就把事情都干完。直到他遇到一个团队希望他投资，这个团队进度很慢，而且留有后路，一切慢悠悠。后来他们成功了，才后悔没有投资。<br/>
+所以演讲者发现，创新者，不止有好主意，而且会改变世界。一面研究他们的特征：<br/>
+1：进度太慢<br/>
+作者一直以他为提前症为荣，直到他的学生说拖延让她有更好的创意。对于创新而言，拖延是美德。<br/>
+市场对于第一个不重视，而是做得更好的那一个更重视。<br/>
+2：充满怀疑<br/>
+看起来他们很自信，但是背后很自疑，亦或是对主意怀疑。<br/>
+最开始都是垃圾，还没完成，然后完善得更好。<br/>
+主动去怀疑默认选项，去寻找更好的选择。害怕失败，但是更害怕不去尝试！从长远来看，不是我们做了什么，而是我们没有做什么。<br/>
+3：原始<br/>
+成功者往往是失败得最多的人，所以当一个人去尝试很多次，总会有一次成功的。其次有的人只尝试了一次就成功，承认运气和天赋的存在，但是很少！<br/>
+其实拖延症和提前症都创新不好，只有刚刚好，花点时间考虑，才有最好的创意。</p>
+
+<p>思考：不要惧怕拖延，有考虑的去行动！不要盲目。其次多尝试，不要害怕失败！</p>
+
+<p>视频链接：<br/>
+<a href="http://open.163.com/movie/2016/4/9/7/MBKJF3H00_MBKJGU197.html">http://open.163.com/movie/2016/4/9/7/MBKJF3H00_MBKJGU197.html</a></p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/6/3</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='ted.html'>TED</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+              
+
+
+			<div class="row">
+			  <div class="large-6 columns">
+			  <p class="text-left" style="padding-top:25px;">
+			   
+			  </p>
+			  </div>
+			  <div class="large-6 columns">
+			<p class="text-right" style="padding-top:25px;">
+			 <a href="all_1.html">&raquo; Next Page</a> 
+			</p>
+			  </div>
+			</div>
 		</div>
-	
+	</div><!-- large 8 -->
 
- 
-	
-
- 
-	
-
- 
-	
-
- 
-	
-
-  
-  
-</div></div>
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>蔡永坚的博客</h1>
+                <div class="site-des"></div>
+                <div class="social">
 
 
-<div class="page-bottom">
+
+
+
+
+
+
+
+
+
+  <a class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="life.html"><strong>生活</strong></a>
+        
+            <a href="viewpoint.html"><strong>观后感</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="14650338135173.html">写给朋友们的话</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14650337571918.html">断网</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14650336173518.html">猫</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14649660620880.html">一切只需十分钟的专注 —— Andy Puddicombe</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14649659042177.html">你有拖延症吗？ 续集 —— Adam Grant</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
   <div class="row">
-  <hr />
-  <div class="small-9 columns">
-  <p class="copyright">Copyright &copy; 2015
+   <p class="copyright">Copyright &copy; 2015
 Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
 Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
-  </div>
-  <div class="small-3 columns">
-  <p class="copyright text-right"><a href="#header">TOP</a></p>
-  </div>
-   
   </div>
 </div>
 
         </section>
       </div>
     </div>
+
+  
     
-    
+
     <script src="asset/js/foundation.min.js"></script>
-    <script src="asset/js/foundation/foundation.offcanvas.js"></script>
     <script>
       $(document).foundation();
-
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
      
     </script>
+
     <script src="asset/chart/all-min.js"></script><script type="text/javascript">$(function(){    var mwebii=0;    var mwebChartEleId = 'mweb-chart-ele-';    $('pre>code').each(function(){        mwebii++;        var eleiid = mwebChartEleId+mwebii;        if($(this).hasClass('language-sequence')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"><div>').insertAfter(ele);            ele.hide();            var diagram = Diagram.parse($(this).text());            diagram.drawSVG(eleiid,{theme: 'simple'});        }else if($(this).hasClass('language-flow')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"><div>').insertAfter(ele);            ele.hide();            var diagram = flowchart.parse($(this).text());            diagram.drawSVG(eleiid);        }    });});</script>
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
 <script>
@@ -198,5 +518,6 @@ Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
   ga('send', 'pageview');
 
 </script>
+
   </body>
 </html>
