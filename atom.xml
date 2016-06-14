@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[蔡永坚的博客]]></title>
-  <link href="http://www.caiyongjian.net/atom.xml" rel="self"/>
-  <link href="http://www.caiyongjian.net/"/>
-  <updated>2016-06-13T08:25:38+08:00</updated>
-  <id>http://www.caiyongjian.net/</id>
+  <link href="caiyongjian.net/atom.xml" rel="self"/>
+  <link href="caiyongjian.net/"/>
+  <updated>2016-06-14T18:08:28+08:00</updated>
+  <id>caiyongjian.net/</id>
   <author>
     <name><![CDATA[]]></name>
     
@@ -13,10 +13,29 @@
   <generator uri="http://www.mweb.im/">MWeb</generator>
   
   <entry>
+    <title type="html"><![CDATA[波西米亚狂想曲 —— Jake Shimabukuro]]></title>
+    <link href="caiyongjian.net/14658995208748.html"/>
+    <updated>2016-06-14T18:18:40+08:00</updated>
+    <id>caiyongjian.net/14658995208748.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">2016年06月14日</h2>
+
+<p>演讲者用乌克丽丽演奏了一曲皇后乐队的波西米亚狂想曲。</p>
+
+<p>思考：<br/>
+乌克丽丽在我眼中一直都只是一个小玩具？因为音域明显比吉他小很多。但是能用乌克丽丽弹奏出这么复杂的歌曲。不禁让我思考了许多，只要把一件小事做得很好，就是一个出色的人了！</p>
+
+<p>视频链接：<br/>
+<a href="http://open.163.com/movie/2011/7/E/G/M7833GT8G_M7833LAEG.html">http://open.163.com/movie/2011/7/E/G/M7833GT8G_M7833LAEG.html</a></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[人性化执法的重要性 —— Adam Foss]]></title>
-    <link href="http://www.caiyongjian.net/14658629628988.html"/>
+    <link href="caiyongjian.net/14658629628988.html"/>
     <updated>2016-06-14T08:09:22+08:00</updated>
-    <id>http://www.caiyongjian.net/14658629628988.html</id>
+    <id>caiyongjian.net/14658629628988.html</id>
     <content type="html"><![CDATA[
 <h2 id="toc_0">2016年06月13日</h2>
 
@@ -44,9 +63,9 @@
   
   <entry>
     <title type="html"><![CDATA[伟大演讲的奥秘 —— Chris Anderson]]></title>
-    <link href="http://www.caiyongjian.net/14657430919458.html"/>
+    <link href="caiyongjian.net/14657430919458.html"/>
     <updated>2016-06-12T22:51:31+08:00</updated>
-    <id>http://www.caiyongjian.net/14657430919458.html</id>
+    <id>caiyongjian.net/14657430919458.html</id>
     <content type="html"><![CDATA[
 <h2 id="toc_0">2016年06月12日</h2>
 
@@ -68,9 +87,9 @@
   
   <entry>
     <title type="html"><![CDATA[一位318岁全息幻影人的爱情故事 —— Monica Byrne]]></title>
-    <link href="http://www.caiyongjian.net/14656693105319.html"/>
+    <link href="caiyongjian.net/14656693105319.html"/>
     <updated>2016-06-12T02:21:50+08:00</updated>
-    <id>http://www.caiyongjian.net/14656693105319.html</id>
+    <id>caiyongjian.net/14656693105319.html</id>
     <content type="html"><![CDATA[
 <h2 id="toc_0">2016年06月11日</h2>
 
@@ -88,9 +107,9 @@
   
   <entry>
     <title type="html"><![CDATA[在朝鲜教书是怎样一种体验 —— Suki Kim]]></title>
-    <link href="http://www.caiyongjian.net/14654927134700.html"/>
+    <link href="caiyongjian.net/14654927134700.html"/>
     <updated>2016-06-10T01:18:33+08:00</updated>
-    <id>http://www.caiyongjian.net/14654927134700.html</id>
+    <id>caiyongjian.net/14654927134700.html</id>
     <content type="html"><![CDATA[
 <h2 id="toc_0">2016年06月10日</h2>
 
@@ -106,9 +125,9 @@
   
   <entry>
     <title type="html"><![CDATA[择一城终老，遇一人白首。 —— Alec Soth + Stacey Baker]]></title>
-    <link href="http://www.caiyongjian.net/14654916232880.html"/>
+    <link href="caiyongjian.net/14654916232880.html"/>
     <updated>2016-06-10T01:00:23+08:00</updated>
-    <id>http://www.caiyongjian.net/14654916232880.html</id>
+    <id>caiyongjian.net/14654916232880.html</id>
     <content type="html"><![CDATA[
 <h2 id="toc_0">2016年06月9日</h2>
 
@@ -126,9 +145,9 @@
   
   <entry>
     <title type="html"><![CDATA[每日总结]]></title>
-    <link href="http://www.caiyongjian.net/14653955692684.html"/>
+    <link href="caiyongjian.net/14653955692684.html"/>
     <updated>2016-06-08T22:19:29+08:00</updated>
-    <id>http://www.caiyongjian.net/14653955692684.html</id>
+    <id>caiyongjian.net/14653955692684.html</id>
     <content type="html"><![CDATA[
 <h2 id="toc_0">2016年06月08日</h2>
 
@@ -154,14 +173,18 @@
 
 <p>不知所云，不知所措；只有看书和踢球在补充能量，收到驾照了。</p>
 
+<h2 id="toc_6">2016年06月14日</h2>
+
+<p>绝望是另一种希望的开始。</p>
+
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[一位性工作者的诉求 —— Toni Mac]]></title>
-    <link href="http://www.caiyongjian.net/14653918493644.html"/>
+    <link href="caiyongjian.net/14653918493644.html"/>
     <updated>2016-06-08T21:17:29+08:00</updated>
-    <id>http://www.caiyongjian.net/14653918493644.html</id>
+    <id>caiyongjian.net/14653918493644.html</id>
     <content type="html"><![CDATA[
 <h2 id="toc_0">2016年6月8日</h2>
 
@@ -205,9 +228,9 @@
   
   <entry>
     <title type="html"><![CDATA[Uber优步的故事 —— Travis Kalanick]]></title>
-    <link href="http://www.caiyongjian.net/14653289143873.html"/>
+    <link href="caiyongjian.net/14653289143873.html"/>
     <updated>2016-06-08T03:48:34+08:00</updated>
-    <id>http://www.caiyongjian.net/14653289143873.html</id>
+    <id>caiyongjian.net/14653289143873.html</id>
     <content type="html"><![CDATA[
 <h2 id="toc_0">2016年6月7日</h2>
 
@@ -229,9 +252,9 @@
   
   <entry>
     <title type="html"><![CDATA[怎样用纸巾擦手 — Joe Smith]]></title>
-    <link href="http://www.caiyongjian.net/14652286111726.html"/>
+    <link href="caiyongjian.net/14652286111726.html"/>
     <updated>2016-06-06T23:56:51+08:00</updated>
-    <id>http://www.caiyongjian.net/14652286111726.html</id>
+    <id>caiyongjian.net/14652286111726.html</id>
     <content type="html"><![CDATA[
 <h2 id="toc_0">2016年06月06日</h2>
 
@@ -250,9 +273,9 @@
   
   <entry>
     <title type="html"><![CDATA[千个TED演讲，六词可蔽之 —— Sebastian Wernicke]]></title>
-    <link href="http://www.caiyongjian.net/14650950888726.html"/>
+    <link href="caiyongjian.net/14650950888726.html"/>
     <updated>2016-06-05T10:51:28+08:00</updated>
-    <id>http://www.caiyongjian.net/14650950888726.html</id>
+    <id>caiyongjian.net/14650950888726.html</id>
     <content type="html"><![CDATA[
 <h2 id="toc_0">2016年06月05日</h2>
 
@@ -272,9 +295,9 @@
   
   <entry>
     <title type="html"><![CDATA[如何成为一个更好的交谈者? —— Celeste Headlee]]></title>
-    <link href="http://www.caiyongjian.net/14650591796776.html"/>
+    <link href="caiyongjian.net/14650591796776.html"/>
     <updated>2016-06-05T00:52:59+08:00</updated>
-    <id>http://www.caiyongjian.net/14650591796776.html</id>
+    <id>caiyongjian.net/14650591796776.html</id>
     <content type="html"><![CDATA[
 <h2 id="toc_0">2016年06月04日</h2>
 
@@ -305,9 +328,9 @@
   
   <entry>
     <title type="html"><![CDATA[写给朋友们的话]]></title>
-    <link href="http://www.caiyongjian.net/14650338135173.html"/>
+    <link href="caiyongjian.net/14650338135173.html"/>
     <updated>2016-06-04T17:50:13+08:00</updated>
-    <id>http://www.caiyongjian.net/14650338135173.html</id>
+    <id>caiyongjian.net/14650338135173.html</id>
     <content type="html"><![CDATA[
 <h2 id="toc_0">2013年5月30日</h2>
 
@@ -346,9 +369,9 @@
   
   <entry>
     <title type="html"><![CDATA[断网]]></title>
-    <link href="http://www.caiyongjian.net/14650337571918.html"/>
+    <link href="caiyongjian.net/14650337571918.html"/>
     <updated>2016-06-04T17:49:17+08:00</updated>
-    <id>http://www.caiyongjian.net/14650337571918.html</id>
+    <id>caiyongjian.net/14650337571918.html</id>
     <content type="html"><![CDATA[
 <h2 id="toc_0">2016年05月11日</h2>
 
@@ -398,9 +421,9 @@
   
   <entry>
     <title type="html"><![CDATA[猫]]></title>
-    <link href="http://www.caiyongjian.net/14650336173518.html"/>
+    <link href="caiyongjian.net/14650336173518.html"/>
     <updated>2016-06-04T17:46:57+08:00</updated>
-    <id>http://www.caiyongjian.net/14650336173518.html</id>
+    <id>caiyongjian.net/14650336173518.html</id>
     <content type="html"><![CDATA[
 <p>早上上完课，宿舍来了一只猫。初看以为是全黑，细看下巴胸口和脚踝是白的。<br/>
 猜测是从对面楼一跃而来的吧，像离家出走一样。<br/>
@@ -413,9 +436,9 @@
   
   <entry>
     <title type="html"><![CDATA[一切只需十分钟的专注 —— Andy Puddicombe]]></title>
-    <link href="http://www.caiyongjian.net/14649660620880.html"/>
+    <link href="caiyongjian.net/14649660620880.html"/>
     <updated>2016-06-03T23:01:02+08:00</updated>
-    <id>http://www.caiyongjian.net/14649660620880.html</id>
+    <id>caiyongjian.net/14649660620880.html</id>
     <content type="html"><![CDATA[
 <h2 id="toc_0">2016年06月03日</h2>
 
@@ -439,9 +462,9 @@
   
   <entry>
     <title type="html"><![CDATA[你有拖延症吗？ 续集 —— Adam Grant]]></title>
-    <link href="http://www.caiyongjian.net/14649659042177.html"/>
+    <link href="caiyongjian.net/14649659042177.html"/>
     <updated>2016-06-03T22:58:24+08:00</updated>
-    <id>http://www.caiyongjian.net/14649659042177.html</id>
+    <id>caiyongjian.net/14649659042177.html</id>
     <content type="html"><![CDATA[
 <h2 id="toc_0">2016年06月02日</h2>
 
@@ -468,9 +491,9 @@
   
   <entry>
     <title type="html"><![CDATA[你有拖延症吗？ —— Tim Urban]]></title>
-    <link href="http://www.caiyongjian.net/14649647799901.html"/>
+    <link href="caiyongjian.net/14649647799901.html"/>
     <updated>2016-06-03T22:39:39+08:00</updated>
-    <id>http://www.caiyongjian.net/14649647799901.html</id>
+    <id>caiyongjian.net/14649647799901.html</id>
     <content type="html"><![CDATA[
 <h2 id="toc_0">2016年06月01日</h2>
 
@@ -501,9 +524,9 @@
   
   <entry>
     <title type="html"><![CDATA[晚安的话]]></title>
-    <link href="http://www.caiyongjian.net/14649438014608.html"/>
+    <link href="caiyongjian.net/14649438014608.html"/>
     <updated>2016-06-03T16:50:01+08:00</updated>
-    <id>http://www.caiyongjian.net/14649438014608.html</id>
+    <id>caiyongjian.net/14649438014608.html</id>
     <content type="html"><![CDATA[
 <p>越是对你而言重要的人，越是近在你身旁。—— 晚安的话 (1) 2013年3月22日 <br/>
 总是害怕老了回忆太少，所以越要珍惜时间。—— 晚安的话 (2) 2013年3月23日 <br/>
