@@ -4,7 +4,7 @@
   <title><![CDATA[蔡永坚的博客]]></title>
   <link href="caiyongjian.net/atom.xml" rel="self"/>
   <link href="caiyongjian.net/"/>
-  <updated>2016-06-17T12:39:58+08:00</updated>
+  <updated>2016-06-17T14:30:53+08:00</updated>
   <id>caiyongjian.net/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -270,9 +270,9 @@ In my life, I&rsquo;ll love you more <br/>
 
 <h2 id="toc_8">链接</h2>
 
-<p><a href="http://music.163.com/#/m/song?id=1476058">http://music.163.com/#/m/song?id=1476058</a></p>
-
-<p><EMBED src="https://github.com/caisweet/Blog/blob/gh-pages/music/John%20Lennon%20-%20In%20My%20Life.mp3" width=300 height=45 type=audio/mpeg loop="false" autostart="false" volume="0"></EMBED></p>
+<p><audio src="music/John Lennon - In My Life.mp3" controls="controls" preload="preload"><br/>
+Your browser does not support the audio element.<br/>
+</audio></p>
 
 ]]></content>
   </entry>
