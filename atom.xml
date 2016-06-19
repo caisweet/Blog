@@ -4,13 +4,78 @@
   <title><![CDATA[蔡永坚的博客]]></title>
   <link href="caiyongjian.net/atom.xml" rel="self"/>
   <link href="caiyongjian.net/"/>
-  <updated>2016-06-19T12:00:32+08:00</updated>
+  <updated>2016-06-19T13:57:21+08:00</updated>
   <id>caiyongjian.net/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[Java删除多级目录]]></title>
+    <link href="caiyongjian.net/14663139179013.html"/>
+    <updated>2016-06-19T13:25:17+08:00</updated>
+    <id>caiyongjian.net/14663139179013.html</id>
+    <content type="html"><![CDATA[
+<h3 id="toc_0">2016年06月19日</h3>
+
+<h2 id="toc_1">问题</h2>
+
+<p>Java中不支持直接删除不为空的多级目录，所以要解决这个问题要曲线救国。</p>
+
+<span id="more"></span><!-- more -->
+
+<h2 id="toc_2">思路</h2>
+
+<ol>
+<li>创建一个File对象，内容是一个目录地址</li>
+<li>创建一个方法，专门用来遍历File对象数组，看是不是目录</li>
+<li>是目录的话，用递归调用方法继续遍历</li>
+<li>是文件的话，删除</li>
+<li>最后文件都删除之后，删除目录</li>
+<li>可以调用输出语句来判断有没有删除成功</li>
+</ol>
+
+<pre><code class="language-flow">st=&gt;start: 创建一个File对象
+e=&gt;end: 结束
+op=&gt;operation: 遍历
+opt=&gt;operation: 删除文件 
+cond=&gt;condition: 是否目录？
+delete=&gt;operation: 删除目录
+st-&gt;op-&gt;cond
+cond(yes)-&gt;op
+cond(no)-&gt;opt
+opt-&gt;delete-&gt;e
+</code></pre>
+
+<h2 id="toc_3">代码</h2>
+
+<pre><code class="language-Java">public class Java20160619_4 {
+public static void main(String[]args){
+        File dir = new File(&quot;/Users/test&quot;);
+        killIt(dir);
+    }
+    public static void killIt(File dir) {
+        File[] files=dir.listFiles();
+        for (File file:files) {
+            if (file.isDirectory()){
+                killIt(file);
+            }else{
+               System.out.println(file+&quot;:&quot;+file.delete());     
+            }
+        }
+        System.out.println(dir+&quot;:&quot;+dir.delete());
+    }
+}
+</code></pre>
+
+<h2 id="toc_4">总结：</h2>
+
+<p>终于回归本业了，希望解决一个又一个小问题然后慢慢成长了。语言只是工具，编程是思想。</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[“天上掉馅饼”的邮件 —— James Veitch]]></title>
@@ -840,34 +905,9 @@ Your browser does not support the audio element.<br/>
 
 <p>无聊的一天，看书看电视剧看电影听音乐。</p>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Uber优步的故事 —— Travis Kalanick]]></title>
-    <link href="caiyongjian.net/14653289143873.html"/>
-    <updated>2016-06-08T03:48:34+08:00</updated>
-    <id>caiyongjian.net/14653289143873.html</id>
-    <content type="html"><![CDATA[
-<h2 id="toc_0">2016年6月7日</h2>
+<h4 id="toc_13">19日</h4>
 
-<p>演讲者说关于Uber以前的人就有类似的尝试，如何把更多的人装进更少的车。</p>
-
-<span id="more"></span><!-- more -->
-
-<p>一开始发展很快，最后由于政府的监管而消失。所以现在私家车保有量直线上升，导致了堵车、环境问题、停车空间问题。</p>
-
-<p>即使政府积极发展公共交通系统，但是还是不能满足所有人的需求。因为不能到达每个人的门口，所以私家车还是有很多。所以Uber在2009年被创建了，想让人按个按钮就能打到车，而且支持拼车，更便宜，让更少车在路上，而且也减轻了汽车排放。更令他开心的是每周的用户增长量也很大。</p>
-
-<p>然后城市的人能打到车，那么在郊区呢？如果大部分人上班都是只有一个人开一辆车，那么不就浪费了。所以他们开发了Uber通勤。</p>
-
-<h2 id="toc_1">思考</h2>
-
-<p>关于Uber，不能不说我对这家公司的敬佩。Travis Kalanick 2009年在美国创建了Uber，2014年进入中国市场。滴滴打车2012年在中国创建，2015年进入我的家乡潮州。在以前，我想都不敢想，终于有一天，不用再和家乡不打表的出租车讨价还价，就能享受到实惠的打车服务。关于科技改变生活，这句话背后的意义，还是需要每个人自己去体会才能明白。这就是我为什么选择计算机行业了，因为不管什么创新，都是计算机走在前面。</p>
-
-<h2 id="toc_2">视频链接</h2>
-
-<p><a href="http://open.163.com/movie/2016/4/0/7/MBK8Q9T4F_MBK92GE07.html">http://open.163.com/movie/2016/4/0/7/MBK8Q9T4F_MBK92GE07.html</a></p>
+<p>当你不再具象，我只想要。  </p>
 
 ]]></content>
   </entry>
