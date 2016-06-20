@@ -157,20 +157,24 @@ opt-&gt;delete-&gt;e
 <h2 id="toc_3">代码</h2>
 
 <pre><code class="language-Java">import java.io.File;
-public class Java20160619{
-public static void main(String[]args){
-        File dir = new File(&quot;/Users/test&quot;);
-        killIt(dir);
+
+public class Java20160619 {
+    public static void main(String[]args){
+        File dir = new File(&quot;/test&quot;);
+        deleteIt(dir);
     }
-    public static void killIt(File dir) {
+    public static void deleteIt(File dir) {
         File[] files=dir.listFiles();
+      //遍历目录，如果遍历到的是目录，递归调用自身继续向下级目录遍历
         for (File file:files) {
             if (file.isDirectory()){
-                killIt(file);
+                deleteIt(file);
+                //如果遍历到的是文件直接删除
             }else{
-               System.out.println(file+&quot;:&quot;+file.delete());     
+               System.out.println(file+&quot;:&quot;+file.delete());
             }
         }
+        //遍历结束后删除空目录
         System.out.println(dir+&quot;:&quot;+dir.delete());
     }
 }
@@ -301,7 +305,13 @@ var duoshuoQuery = {short_name:"caiyongjian"};
 	      
 		      
 			      <li class="post">
-			        <a href="14664033786011.html">使用properties例子</a>
+			        <a href="14664103287553.html">获取指定后缀名文件的绝对路径</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14664033786011.html">properties简例</a>
 			      </li>
 		     
 		  
@@ -320,12 +330,6 @@ var duoshuoQuery = {short_name:"caiyongjian"};
 		      
 			      <li class="post">
 			        <a href="14663139179013.html">删除多级目录</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="14663076509174.html">“天上掉馅饼”的邮件 —— James Veitch</a>
 			      </li>
 		     
 		  

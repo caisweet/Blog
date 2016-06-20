@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  编程 - 蔡永坚的博客
+  获取指定后缀名文件的绝对路径 - 蔡永坚的博客
   
   </title>
   
@@ -94,145 +94,168 @@
        
 
  <script type="text/javascript">
-	$(function(){
-		$('#menu_item_index').addClass('is_active');
-	});
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
 </script>
 <div class="row">
-	<div class="large-8 medium-8 columns">
-		<div class="markdown-body home-categories">
-		
-			<div class="article">
-                <a class="clearlink" href="14664103287553.html">
-                
-                  <h1>获取指定后缀名文件的绝对路径</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h3 id="toc_0">2016年06月20日</h3>
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>获取指定后缀名文件的绝对路径</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2016/6/20</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='java.html'>Java</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h3 id="toc_0">2016年06月20日</h3>
 
 <h2 id="toc_1">问题</h2>
 
 <p>想要知道某个文件夹下面是否有需要的后缀名文件，有就把文件的绝对路径记录下来，然后打印在文本文件中。</p>
 
+<span id="more"></span><!-- more --> 
 
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                   <a href="14664103287553.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2016/6/20</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='java.html'>Java</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
+<h2 id="toc_2">思路</h2>
 
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="14664033786011.html">
-                
-                  <h1>properties简例</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h3 id="toc_0">2016年06月20日</h3>
+<ol>
+<li>遍历目录</li>
+<li>判断文件后缀名，是就把文件添加到数组中</li>
+<li>把数组中的文件打印出绝对路径到文本文件中</li>
+</ol>
 
-<h2 id="toc_1">问题</h2>
+<pre><code class="language-flow">st=&gt;start: 开始
+end=&gt;end: 结束
+op=&gt;operation: 遍历目录
+ope=&gt;operation: 记录文件
+co=&gt;condition: 是否目录？
+cond=&gt;condition: 是否要找的后缀名文件？
+st-&gt;op-&gt;co(yes)-&gt;op
+co(no)-&gt;cond(yes)-&gt;ope-&gt;end
+</code></pre>
 
-<p>判断运行的次数，如果超过5次就中断退出</p>
+<h2 id="toc_3">代码</h2>
+
+<pre><code class="language-Java">
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Java20160620_2 {
+    public static void main(String []args) throws IOException {
+         File dir=new File(&quot;/test&quot;);
+        FilenameFilter filter=new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                return name.endsWith(&quot;.mp3&quot;);
+            }
+        };
+        List&lt;File&gt; list=new ArrayList&lt;File&gt;();
+        getFiles(dir,filter,list);
+        wirteIt(list);
+    }
+
+    public static void wirteIt(List&lt;File&gt; list) throws IOException {
+        File f=new File(&quot;music.txt&quot;);
+        BufferedWriter fw=new BufferedWriter(new FileWriter(f));
+        for (File file:list){
+           fw.append(file.getAbsolutePath());
+            fw.newLine();
+            fw.flush();
+        }
+        fw.close();
+    }
+
+    public static void getFiles(File dir, FilenameFilter filter, List&lt;File&gt; list) {
+        File[] files=dir.listFiles();
+        for (File file:files){
+            if (file.isDirectory()){
+                getFiles(file,filter,list);
+            }else{
+               if(filter.accept(file,file.getName())){
+                   list.add(file);
+               }
+            }
+        }
+    }
+}
+</code></pre>
+
+<h2 id="toc_4">总结</h2>
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="14664033786011.html" 
+          title="Next Post: properties简例">properties简例 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- 多说评论框 start -->
+	<div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"caiyongjian"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
 
 
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                   <a href="14664033786011.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2016/6/20</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='java.html'>Java</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
 
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="14663139179013.html">
-                
-                  <h1>删除多级目录</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h3 id="toc_0">2016年06月19日</h3>
-
-<h2 id="toc_1">问题</h2>
-
-<p>Java中不支持直接删除不为空的多级目录，所以要解决这个问题要曲线救国。</p>
-
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                   <a href="14663139179013.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2016/6/19</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='java.html'>Java</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-              
-
-
-			<div class="row">
-			  <div class="large-6 columns">
-			  <p class="text-left" style="padding-top:25px;">
-			   
-			  </p>
-			  </div>
-			  <div class="large-6 columns">
-			<p class="text-right" style="padding-top:25px;">
-			
-			</p>
-			  </div>
-			</div>
-		</div>
-	</div><!-- large 8 -->
 
  <div class="large-4 medium-4 columns">
   <div class="hide-for-small">

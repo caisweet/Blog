@@ -4,7 +4,7 @@
   <title><![CDATA[蔡永坚的博客]]></title>
   <link href="caiyongjian.net/atom.xml" rel="self"/>
   <link href="caiyongjian.net/"/>
-  <updated>2016-06-20T15:21:56+08:00</updated>
+  <updated>2016-06-20T15:24:02+08:00</updated>
   <id>caiyongjian.net/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -13,7 +13,91 @@
   <generator uri="http://www.mweb.im/">MWeb</generator>
   
   <entry>
-    <title type="html"><![CDATA[使用properties例子]]></title>
+    <title type="html"><![CDATA[获取指定后缀名文件的绝对路径]]></title>
+    <link href="caiyongjian.net/14664103287553.html"/>
+    <updated>2016-06-20T16:12:08+08:00</updated>
+    <id>caiyongjian.net/14664103287553.html</id>
+    <content type="html"><![CDATA[
+<h3 id="toc_0">2016年06月20日</h3>
+
+<h2 id="toc_1">问题</h2>
+
+<p>想要知道某个文件夹下面是否有需要的后缀名文件，有就把文件的绝对路径记录下来，然后打印在文本文件中。</p>
+
+<span id="more"></span><!-- more --> 
+
+<h2 id="toc_2">思路</h2>
+
+<ol>
+<li>遍历目录</li>
+<li>判断文件后缀名，是就把文件添加到数组中</li>
+<li>把数组中的文件打印出绝对路径到文本文件中</li>
+</ol>
+
+<pre><code class="language-flow">st=&gt;start: 开始
+end=&gt;end: 结束
+op=&gt;operation: 遍历目录
+ope=&gt;operation: 记录文件
+co=&gt;condition: 是否目录？
+cond=&gt;condition: 是否要找的后缀名文件？
+st-&gt;op-&gt;co(yes)-&gt;op
+co(no)-&gt;cond(yes)-&gt;ope-&gt;end
+</code></pre>
+
+<h2 id="toc_3">代码</h2>
+
+<pre><code class="language-Java">
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Java20160620_2 {
+    public static void main(String []args) throws IOException {
+         File dir=new File(&quot;/test&quot;);
+        FilenameFilter filter=new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                return name.endsWith(&quot;.mp3&quot;);
+            }
+        };
+        List&lt;File&gt; list=new ArrayList&lt;File&gt;();
+        getFiles(dir,filter,list);
+        wirteIt(list);
+    }
+
+    public static void wirteIt(List&lt;File&gt; list) throws IOException {
+        File f=new File(&quot;music.txt&quot;);
+        BufferedWriter fw=new BufferedWriter(new FileWriter(f));
+        for (File file:list){
+           fw.append(file.getAbsolutePath());
+            fw.newLine();
+            fw.flush();
+        }
+        fw.close();
+    }
+
+    public static void getFiles(File dir, FilenameFilter filter, List&lt;File&gt; list) {
+        File[] files=dir.listFiles();
+        for (File file:files){
+            if (file.isDirectory()){
+                getFiles(file,filter,list);
+            }else{
+               if(filter.accept(file,file.getName())){
+                   list.add(file);
+               }
+            }
+        }
+    }
+}
+</code></pre>
+
+<h2 id="toc_4">总结</h2>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[properties简例]]></title>
     <link href="caiyongjian.net/14664033786011.html"/>
     <updated>2016-06-20T14:16:18+08:00</updated>
     <id>caiyongjian.net/14664033786011.html</id>
@@ -24,7 +108,7 @@
 
 <p>判断运行的次数，如果超过5次就中断退出</p>
 
-<span id="more"></span><!-- more -->
+<span id="more"></span><!-- more --> 
 
 <h2 id="toc_2">思路</h2>
 
@@ -53,32 +137,36 @@ if(no)-&gt;continue-&gt;e
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Properties; public class Java20160620{
-public static void main(String[]args) throws IOException {
-            File file = new File(&quot;time.properties&quot;);
-            if (!file.exists()){
+import java.util.Properties;
+
+public class Java20160620_1 {
+    public static void main(String[]args) throws IOException {
+        File file = new File(&quot;time.properties&quot;);
+        if (!file.exists()){
             file.createNewFile();
-            }
-            FileInputStream fis = new FileInputStream(file);
-            int count=0;
-            Properties prop=new Properties();
-            prop.load(fis);
-            String value=prop.getProperty(&quot;time&quot;);
-            if (value!=null){
+        }
+        FileInputStream fis = new FileInputStream(file);
+        int count=0;
+        Properties prop=new Properties();
+        prop.load(fis);
+        String value=prop.getProperty(&quot;time&quot;);
+        if (value!=null){
             count=Integer.parseInt(value);
             if (count&gt;=5){
-            throw new RuntimeException(&quot;运行次数已到限制!&quot;);
+                throw new RuntimeException(&quot;运行次数已到限制!&quot;);
             }
-            }
-            count++;
-            System.out.println(&quot;这是软件第&quot;+count+&quot;次运行&quot;);
-            prop.setProperty(&quot;time&quot;,count+&quot;&quot;);
-            FileOutputStream fos=new FileOutputStream(file);
-            prop.store(fos,&quot;&quot;);
-            fis.close();
-            fos.close();
-            }
+        }
+        count++;
+        System.out.println(&quot;这是软件第&quot;+count+&quot;次运行&quot;);
+        prop.setProperty(&quot;time&quot;,count+&quot;&quot;);
+        FileOutputStream fos=new FileOutputStream(file);
+        prop.store(fos,&quot;&quot;);
+        fis.close();
+        fos.close();
     }
+}
+
+
 </code></pre>
 
 <h2 id="toc_4">总结</h2>
@@ -292,20 +380,24 @@ opt-&gt;delete-&gt;e
 <h2 id="toc_3">代码</h2>
 
 <pre><code class="language-Java">import java.io.File;
-public class Java20160619{
-public static void main(String[]args){
-        File dir = new File(&quot;/Users/test&quot;);
-        killIt(dir);
+
+public class Java20160619 {
+    public static void main(String[]args){
+        File dir = new File(&quot;/test&quot;);
+        deleteIt(dir);
     }
-    public static void killIt(File dir) {
+    public static void deleteIt(File dir) {
         File[] files=dir.listFiles();
+      //遍历目录，如果遍历到的是目录，递归调用自身继续向下级目录遍历
         for (File file:files) {
             if (file.isDirectory()){
-                killIt(file);
+                deleteIt(file);
+                //如果遍历到的是文件直接删除
             }else{
-               System.out.println(file+&quot;:&quot;+file.delete());     
+               System.out.println(file+&quot;:&quot;+file.delete());
             }
         }
+        //遍历结束后删除空目录
         System.out.println(dir+&quot;:&quot;+dir.delete());
     }
 }
@@ -974,31 +1066,6 @@ Your browser does not support the audio element.<br/>
 <h2 id="toc_2">视频链接</h2>
 
 <p><a href="http://open.163.com/movie/2016/6/I/C/MBMK1OT95_MBMK2BDIC.html">http://open.163.com/movie/2016/6/I/C/MBMK1OT95_MBMK2BDIC.html</a> </p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[在朝鲜教书是怎样一种体验 —— Suki Kim]]></title>
-    <link href="caiyongjian.net/14654927134700.html"/>
-    <updated>2016-06-10T01:18:33+08:00</updated>
-    <id>caiyongjian.net/14654927134700.html</id>
-    <content type="html"><![CDATA[
-<h2 id="toc_0">2016年06月10日</h2>
-
-<p>演讲者在出生在韩国，现在居住在美国。演讲者认为要了解朝鲜就要去深入其中。演讲者去朝鲜一个贵族子弟的大学当英语老师。朝鲜是一个极权国家，崇拜领导，监视无处不在，审查无处不在。演讲者去那位了寻找真相，</p>
-
-<span id="more"></span><!-- more -->
-
-<p>可又不知道从何而起。演讲者通过一个游戏想了解学生们是否真的在撒谎？可是他们早已经模糊了真相和谎言的界限。他们的思维是被命令的，批判性思维是不被允许的。然后演讲者让学生写信，给家人朋友，但是不会寄出去。开始收到一些内心话，例如不喜欢格式化的生活。演讲者很想告诉他们真相，可是她不能。因为对他们来说，真相是危险的。有一个学生在她离开之前说，虽然我们境遇不同，但是请你相信我们是一样的。演讲者说如果她能写最后一封信给他们，希望他们不要去冒险，革命交给其他的年轻人吧。希望你们健康，长寿。</p>
-
-<h2 id="toc_1">思考</h2>
-
-<p>极权统治下的人们，如果发出声音是危险的，就过好自己的生活吧，永远不要去畏惧改变。</p>
-
-<h2 id="toc_2">视频链接</h2>
-
-<p><a href="http://open.163.com/movie/2015/7/E/M/MAU4KT3JR_MAU4MMSEM.html">http://open.163.com/movie/2015/7/E/M/MAU4KT3JR_MAU4MMSEM.html</a></p>
 
 ]]></content>
   </entry>
