@@ -123,7 +123,7 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <h3 id="toc_0">2016年06月20日</h3>
+      <h2 id="toc_0">2016年06月20日</h2>
 
 <h2 id="toc_1">问题</h2>
 
@@ -159,12 +159,14 @@ import java.util.List;
 public class Java20160620_2 {
     public static void main(String []args) throws IOException {
          File dir=new File(&quot;/test&quot;);
+         //用匿名内部类的方式重写过滤器，过滤以.mp3结尾的文件
         FilenameFilter filter=new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
                 return name.endsWith(&quot;.mp3&quot;);
             }
         };
+        //创建一个集合来存储过滤后的文件
         List&lt;File&gt; list=new ArrayList&lt;File&gt;();
         getFiles(dir,filter,list);
         wirteIt(list);
@@ -172,8 +174,10 @@ public class Java20160620_2 {
 
     public static void wirteIt(List&lt;File&gt; list) throws IOException {
         File f=new File(&quot;music.txt&quot;);
+        //创建缓冲区来写文件
         BufferedWriter fw=new BufferedWriter(new FileWriter(f));
         for (File file:list){
+        //把集合中存储的对象，获取绝对路径后写入
            fw.append(file.getAbsolutePath());
             fw.newLine();
             fw.flush();
@@ -183,10 +187,12 @@ public class Java20160620_2 {
 
     public static void getFiles(File dir, FilenameFilter filter, List&lt;File&gt; list) {
         File[] files=dir.listFiles();
+        //遍历目录，是目录就递归调用自身继续向下级目录遍历
         for (File file:files){
             if (file.isDirectory()){
                 getFiles(file,filter,list);
             }else{
+            //遍历到文件就获取名字用过滤器判断是否符合，符合就添加到集合中
                if(filter.accept(file,file.getName())){
                    list.add(file);
                }
@@ -198,11 +204,16 @@ public class Java20160620_2 {
 
 <h2 id="toc_4">总结</h2>
 
+<p>单单学习好像很容易忘记，自己想清楚思路，再自己写一遍，最后再注释一遍加深印象。这是我深爱的职业阿，加油阿！</p>
+
       </div>
 
       <div class="row">
         <div class="large-6 columns">
         <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="14664254499123.html" 
+          title="Previous Post: 云雀叫了一整天 —— 木心">&laquo; 云雀叫了一整天 —— 木心</a>
       
         </p>
         </div>
@@ -316,6 +327,12 @@ var duoshuoQuery = {short_name:"caiyongjian"};
 	      
 		      
 			      <li class="post">
+			        <a href="14664254499123.html">云雀叫了一整天 —— 木心</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="14664103287553.html">获取指定后缀名文件的绝对路径</a>
 			      </li>
 		     
@@ -335,12 +352,6 @@ var duoshuoQuery = {short_name:"caiyongjian"};
 		      
 			      <li class="post">
 			        <a href="14663917089788.html">Dancehall —— Tribes</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="14663139179013.html">删除多级目录</a>
 			      </li>
 		     
 		  

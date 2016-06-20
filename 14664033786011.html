@@ -123,7 +123,7 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <h3 id="toc_0">2016年06月20日</h3>
+      <h2 id="toc_0">2016年06月20日</h2>
 
 <h2 id="toc_1">问题</h2>
 
@@ -163,6 +163,7 @@ import java.util.Properties;
 public class Java20160620_1 {
     public static void main(String[]args) throws IOException {
         File file = new File(&quot;time.properties&quot;);
+        //判断配置文件是否存在，不存在就建立一个
         if (!file.exists()){
             file.createNewFile();
         }
@@ -171,8 +172,10 @@ public class Java20160620_1 {
         Properties prop=new Properties();
         prop.load(fis);
         String value=prop.getProperty(&quot;time&quot;);
+        //判断配置文件中是否存在time相对于值，存在就读取
         if (value!=null){
             count=Integer.parseInt(value);
+            //如果次数大于5，就抛出运行时异常并中断程序
             if (count&gt;=5){
                 throw new RuntimeException(&quot;运行次数已到限制!&quot;);
             }
@@ -181,13 +184,12 @@ public class Java20160620_1 {
         System.out.println(&quot;这是软件第&quot;+count+&quot;次运行&quot;);
         prop.setProperty(&quot;time&quot;,count+&quot;&quot;);
         FileOutputStream fos=new FileOutputStream(file);
+        //将次数写进配置文件
         prop.store(fos,&quot;&quot;);
         fis.close();
         fos.close();
     }
 }
-
-
 </code></pre>
 
 <h2 id="toc_4">总结</h2>
@@ -315,6 +317,12 @@ var duoshuoQuery = {short_name:"caiyongjian"};
 	      
 		      
 			      <li class="post">
+			        <a href="14664254499123.html">云雀叫了一整天 —— 木心</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="14664103287553.html">获取指定后缀名文件的绝对路径</a>
 			      </li>
 		     
@@ -334,12 +342,6 @@ var duoshuoQuery = {short_name:"caiyongjian"};
 		      
 			      <li class="post">
 			        <a href="14663917089788.html">Dancehall —— Tribes</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="14663139179013.html">删除多级目录</a>
 			      </li>
 		     
 		  
