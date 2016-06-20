@@ -4,7 +4,7 @@
   <title><![CDATA[蔡永坚的博客]]></title>
   <link href="caiyongjian.net/atom.xml" rel="self"/>
   <link href="caiyongjian.net/"/>
-  <updated>2016-06-19T13:57:21+08:00</updated>
+  <updated>2016-06-20T15:21:56+08:00</updated>
   <id>caiyongjian.net/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -13,7 +13,247 @@
   <generator uri="http://www.mweb.im/">MWeb</generator>
   
   <entry>
-    <title type="html"><![CDATA[Java删除多级目录]]></title>
+    <title type="html"><![CDATA[使用properties例子]]></title>
+    <link href="caiyongjian.net/14664033786011.html"/>
+    <updated>2016-06-20T14:16:18+08:00</updated>
+    <id>caiyongjian.net/14664033786011.html</id>
+    <content type="html"><![CDATA[
+<h3 id="toc_0">2016年06月20日</h3>
+
+<h2 id="toc_1">问题</h2>
+
+<p>判断运行的次数，如果超过5次就中断退出</p>
+
+<span id="more"></span><!-- more -->
+
+<h2 id="toc_2">思路</h2>
+
+<ol>
+<li>要判断次数必须有一个计数器</li>
+<li>因为要计算运行次数的，所以计数器不能在内存中，否则每次都重置了</li>
+<li>可以使用properties配合输入流和输出流，通过读写文件来判断次数，从而中断程序</li>
+</ol>
+
+<pre><code class="language-flow">st=&gt;start: 开始
+e=&gt;end: 结束
+op=&gt;operation: 读取
+opt=&gt;operation: 创建配置文件
+stop=&gt;operation: 中断程序
+continue=&gt;operation: 计数器+1，程序正常运行
+cond=&gt;condition: 判断是否存在配置文件？
+if=&gt;condition: 判断次数是否大于5?
+st-&gt;cond(yes)-&gt;op-&gt;if(yes)-&gt;stop-&gt;e
+cond(no)-&gt;opt-&gt;op
+if(no)-&gt;continue-&gt;e
+</code></pre>
+
+<h2 id="toc_3">代码</h2>
+
+<pre><code class="language-Java">import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Properties; public class Java20160620{
+public static void main(String[]args) throws IOException {
+            File file = new File(&quot;time.properties&quot;);
+            if (!file.exists()){
+            file.createNewFile();
+            }
+            FileInputStream fis = new FileInputStream(file);
+            int count=0;
+            Properties prop=new Properties();
+            prop.load(fis);
+            String value=prop.getProperty(&quot;time&quot;);
+            if (value!=null){
+            count=Integer.parseInt(value);
+            if (count&gt;=5){
+            throw new RuntimeException(&quot;运行次数已到限制!&quot;);
+            }
+            }
+            count++;
+            System.out.println(&quot;这是软件第&quot;+count+&quot;次运行&quot;);
+            prop.setProperty(&quot;time&quot;,count+&quot;&quot;);
+            FileOutputStream fos=new FileOutputStream(file);
+            prop.store(fos,&quot;&quot;);
+            fis.close();
+            fos.close();
+            }
+    }
+</code></pre>
+
+<h2 id="toc_4">总结</h2>
+
+<p>因为只是一个数字的读取，所以文件格式没整理。如果数据一多，xml文件的好处就出来了，就当做是管中窥豹吧。</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[学校扼杀创造力 —— Ken Robinson]]></title>
+    <link href="caiyongjian.net/14664007403140.html"/>
+    <updated>2016-06-20T13:32:20+08:00</updated>
+    <id>caiyongjian.net/14664007403140.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">2016年06月20日</h2>
+
+<p>演讲者认为创新的多样性很重要。教育的目的是将孩子带入无法预测的未来。</p>
+
+<span id="more"></span><!-- more -->
+
+<p>以成绩来衡量一个人是有原因的，在过去：<br/>
+1. 学对工作最重要的学科<br/>
+2. 不这样做就找不到工作</p>
+
+<p>培养人才有3个原则<br/>
+ 1. 多样化<br/>
+ 2. 好学生是充满活力的<br/>
+ 3. 个性化</p>
+
+<p>演讲者举了个例子，一个舞蹈家小时候在读书方面没有天赋，还被以为有多动症，然后她被家长带去看病。医生发现她是个天生舞者，劝她父母带她去舞蹈学校。</p>
+
+<p>培养孩子要用孩子喜欢的方式，帮助他们更好的面对未来。</p>
+
+<h2 id="toc_1">思考</h2>
+
+<p>如何避开规则的培养孩子？而且不扼杀他们的创造力？是我今后会面对的一课，希望到那时候我已经准备好了</p>
+
+<h2 id="toc_2">视频链接</h2>
+
+<p><a href="http://open.163.com/movie/2006/2/V/E/M7SP3QUET_M7SP3T0VE.html">http://open.163.com/movie/2006/2/V/E/M7SP3QUET_M7SP3T0VE.html</a></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dancehall —— Tribes]]></title>
+    <link href="caiyongjian.net/14663917089788.html"/>
+    <updated>2016-06-20T11:01:48+08:00</updated>
+    <id>caiyongjian.net/14663917089788.html</id>
+    <content type="html"><![CDATA[
+<h3 id="toc_0">2016年06月20日</h3>
+
+<h3 id="toc_1">推荐指数：6/10</h3>
+
+<h2 id="toc_2">歌词</h2>
+
+<span id="more"></span><!-- more -->
+
+<p>She&rsquo;s a gypsy queen real tall and mean <br/>
+她是高挑又挑剔的吉卜赛女王<br/>
+She&rsquo;s an airplane no one&rsquo;s ever seen <br/>
+她是一架从未有人见过的飞机<br/>
+She&rsquo;s a firecracker real dancehall master <br/>
+她是绚烂的烟火，一个真正的舞蹈大师<br/>
+She&rsquo;s a hurricane when you walk past her <br/>
+当你经过她身旁，她宛如飓风吹袭<br/>
+She&rsquo;s the morning sun in the midnight wind <br/>
+她是午夜的微风中熠熠生辉的朝阳<br/>
+She&rsquo;d sell her soul for all her sins <br/>
+她会用她全部的灵魂赎犯下的罪<br/>
+She&rsquo;ll come right at you real Cleopatra <br/>
+她朝你走来，就像一个真正的埃及艳后<br/>
+You take all you got and you give it to her <br/>
+你倾其所有全部给予了她<br/>
+Did you see that lightning in the sky <br/>
+你看见空中的那道闪电吗<br/>
+A window to my mind <br/>
+它是我灵的窗口<br/>
+It leaves me hypnotized <br/>
+它令我向往着<br/>
+Somewhere better <br/>
+一个更魔幻的地方<br/>
+Did you feel that thunder hit last night <br/>
+你听见昨晚的雷鸣吗<br/>
+A poison in my mind <br/>
+它是我脑中的毒<br/>
+It leaves me hypnotized <br/>
+它令我向往着<br/>
+Somewhere better <br/>
+一个更魔幻的地方<br/>
+She&rsquo;s a striptease real hard to please <br/>
+她是难以取悦的脱衣舞女郎<br/>
+She&rsquo;ll cheer you up bring you to your knees <br/>
+她能令你奋不顾身成为裙下之臣<br/>
+She&rsquo;s a movie star fast sports car <br/>
+她像电影明星一样闪亮，极速的跑车一样狂野<br/>
+She&rsquo;s a razor blade she&rsquo;ll take you far <br/>
+她就像剃刀的刀锋，她能带你远走高飞<br/>
+She&rsquo;s the ocean&rsquo;s cool and your midnight ride <br/>
+她能像海洋般冷酷，也能在午夜载你一程<br/>
+She&rsquo;s a devil&rsquo;s church and a preacher&rsquo;s wife <br/>
+她就像恶魔的教堂，传教士的妻子<br/>
+She&rsquo;ll come right at you real Cleopatra <br/>
+她朝你走来，就像一个真正的埃及艳后<br/>
+You take all you got and you give it to her <br/>
+你倾其所有，并全部给予了她<br/>
+Did you see that lightning in the sky <br/>
+你看见空中的那道闪电吗<br/>
+A window to my mind <br/>
+它是我灵的窗口<br/>
+It leaves me hypnotized <br/>
+它令我向往着<br/>
+Somewhere better <br/>
+一个更魔幻的地方<br/>
+Did you feel that thunder hit last night <br/>
+你听见昨晚的雷鸣吗<br/>
+A poison in my mind <br/>
+它是我脑中的毒<br/>
+It leaves me hypnotized <br/>
+它令我向往着<br/>
+Somewhere better <br/>
+一个更魔幻的地方<br/>
+I don&rsquo;t care for dancing <br/>
+我并不喜欢跳舞<br/>
+but thanks for asking <br/>
+但还是多谢邀请<br/>
+Did you see that lightning in the sky <br/>
+你看见空中的那道闪电吗<br/>
+A window to my mind <br/>
+它是我心的窗口<br/>
+It leaves me hypnotized <br/>
+它令我向往着<br/>
+Somewhere better <br/>
+一个更魔幻的地方<br/>
+Did you feel that thunder hit last night <br/>
+你听见昨晚的雷鸣吗<br/>
+A poison in my mind <br/>
+它是我意识中的毒药<br/>
+It leaves me hypnotized <br/>
+它令我向往着<br/>
+Somewhere better <br/>
+一个更魔幻的地方</p>
+
+<h2 id="toc_3">简介</h2>
+
+<p>《Dancehall》收录在Tribes在2013年5月28日发行的专辑《Wish to Scream》中</p>
+
+<h2 id="toc_4">评价</h2>
+
+<p>朗朗上口的歌词，中毒性的旋律。不得不说在某一时期单曲循环这首歌很久。</p>
+
+<h2 id="toc_5">推荐理由</h2>
+
+<p>又一支来自英伦的乐队，别样的风格，为何不尝试一下呢？很喜欢的一个对这首歌的评价</p>
+
+<blockquote>
+<p>这首歌里有我对女人的所有幻想</p>
+
+<h2 id="toc_6">题外话</h2>
+
+<p>虽说Tribes在2013年11月7日就解散了，可是音乐作为一种作品载体被永远的留下来了。希望能记得在某一段时间有这样的一支乐队留下这样的作品。  </p>
+
+<h2 id="toc_7">链接</h2>
+
+<p><audio src="music/Tribes - Dancehall.mp3" controls="controls"><br/>
+Your browser does not support the audio element.<br/>
+</audio></p>
+</blockquote>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[删除多级目录]]></title>
     <link href="caiyongjian.net/14663139179013.html"/>
     <updated>2016-06-19T13:25:17+08:00</updated>
     <id>caiyongjian.net/14663139179013.html</id>
@@ -51,7 +291,8 @@ opt-&gt;delete-&gt;e
 
 <h2 id="toc_3">代码</h2>
 
-<pre><code class="language-Java">public class Java20160619_4 {
+<pre><code class="language-Java">import java.io.File;
+public class Java20160619{
 public static void main(String[]args){
         File dir = new File(&quot;/Users/test&quot;);
         killIt(dir);
@@ -115,8 +356,6 @@ public static void main(String[]args){
 <h3 id="toc_1">推荐指数：7/10</h3>
 
 <h2 id="toc_2">歌词</h2>
-
-<p>词曲：李志</p>
 
 <span id="more"></span><!-- more -->
 
@@ -237,8 +476,6 @@ Your browser does not support the audio element.<br/>
 
 <h2 id="toc_2">歌词</h2>
 
-<p>词曲：齐秦</p>
-
 <span id="more"></span><!-- more -->
 
 <p>在很久很久以前<br/>
@@ -333,8 +570,6 @@ Your browser does not support the audio element.<br/>
 
 <h2 id="toc_2">歌词</h2>
 
-<p>词曲:李志</p>
-
 <span id="more"></span><!-- more -->
 
 <p>忽然就流出泪来<br/>
@@ -423,8 +658,6 @@ Your browser does not support the audio element.<br/>
 <h3 id="toc_1">推荐指数：7/10</h3>
 
 <h2 id="toc_2">歌词</h2>
-
-<p>词曲：吴青峰</p>
 
 <span id="more"></span><!-- more -->
 
@@ -550,8 +783,6 @@ Your browser does not support the audio element.<br/>
 <h3 id="toc_1">推荐指数：8.5/10</h3>
 
 <h2 id="toc_2">歌词</h2>
-
-<p>词曲：约翰·列侬、保罗·麦卡特尼</p>
 
 <span id="more"></span><!-- more -->
 
@@ -768,146 +999,6 @@ Your browser does not support the audio element.<br/>
 <h2 id="toc_2">视频链接</h2>
 
 <p><a href="http://open.163.com/movie/2015/7/E/M/MAU4KT3JR_MAU4MMSEM.html">http://open.163.com/movie/2015/7/E/M/MAU4KT3JR_MAU4MMSEM.html</a></p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[择一城终老，遇一人白首。 —— Alec Soth + Stacey Baker]]></title>
-    <link href="caiyongjian.net/14654916232880.html"/>
-    <updated>2016-06-10T01:00:23+08:00</updated>
-    <id>caiyongjian.net/14654916232880.html</id>
-    <content type="html"><![CDATA[
-<h2 id="toc_0">2016年06月9日</h2>
-
-<p>男演讲者讲述他的经历，遇到女演讲者贷款请他给父母拍照。女生提出一个问题，两个相爱的人如何认识？想做一个摄影项目来探讨这个问题。女演讲者参加了19次闪电约会来了解不同人的喜好，也没有找到一个中意的，她觉得那些男生也没找到。</p>
-
-<span id="more"></span><!-- more -->
-
-<p>什么是真爱，它是怎么来的？从一次约会，到一生相伴。所以他们去一个养老社区去帮老夫妻拍照然后聊天听他们的故事。有人说：当你感觉来了，那就跟着感觉走。一天之后，女演讲者觉得这些人相遇不见得是那么有趣，但是他们是如何坚持着一起走下去的？男演讲者说，忍耐力，单身的人也有，在找另一半的时候。<br/>
-当然他们印象最深刻的是一对老夫妻，当询问他们是否有当年的婚纱照时，他们不约而同的拿出自己的钱包的一张婚纱照。所以，哪一个更美丽，是照片里陷入爱河的年轻夫妻，还是多年后一起从钱包里拿出同一张照片的老夫妻？</p>
-
-<h2 id="toc_1">思考</h2>
-
-<p>爱情的美丽在于相遇时的有趣还是一起走过的春夏秋冬？相信每个人都有自己的答案，而我选择后者。</p>
-
-<h2 id="toc_2">视频链接</h2>
-
-<p><a href="http://open.163.com/movie/2015/7/O/0/MAU9UMSJE_MAU9V5VO0.html">http://open.163.com/movie/2015/7/O/0/MAU9UMSJE_MAU9V5VO0.html</a></p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[一位性工作者的诉求 —— Toni Mac]]></title>
-    <link href="caiyongjian.net/14653918493644.html"/>
-    <updated>2016-06-08T21:17:29+08:00</updated>
-    <id>caiyongjian.net/14653918493644.html</id>
-    <content type="html"><![CDATA[
-<h2 id="toc_0">2016年6月8日</h2>
-
-<p>演讲者本身就是一个性工作者。更多的人觉得这卖春很恶心，应该立法禁止性服务。</p>
-
-<p>演讲者提醒关于这行业，我们应该想得更多。全世界大概有4种方式禁止性服务。</p>
-
-<span id="more"></span><!-- more -->
-
-<p>1.全盘有罪，买卖者和第三方都有罪。但是一旦有犯罪记录，就很难找到一份正常的工作。这让人改不了良，也有权力寻租的空间。在某些地方，避孕套更是成为性服务犯罪的证据，这更加加重了不安全。</p>
-
-<p>2.局部定罪：卖春和性服务都是无罪，只要不光明正大的开点，只能单独服务！但是这容易导致性暴力，而且即使多人也会被威胁。不能站街意味着性服务者更容易被侵害。</p>
-
-<p>3.性工作法规：卖春对身体有害，所以让它变得不赚钱。买春有罪！这样反而滋生了皮条客。而且让性工作者更有风险。</p>
-
-<p>4.合法化：但这有不是保护人权的方式，而且划定了指定区域。定时体检和注册，过高的门槛让性工作者分成了合法和非法两部分。</p>
-
-<p>演讲者认为这些法律能够通过是因为有人担心性合法化导致人口贩卖和沦为性奴。但是她觉得这问题不是性合法化导致的，应该根据相应的犯罪退出相对应的法律！而不是因噎废食。不要在解决问题的同时创建更多的问题！</p>
-
-<p>关于禁令，还有可能是女权主义者反对。演讲者认为不能通过立法来规定一个美好的世界。不能根据情感还制定法律，和忽略到那些被这些法律影响的人！</p>
-
-<p>还有人说想象如果你的女儿从事这工作呢？演讲者认为假设不应该假设在是不是从事，而是为什么她不能工作的时候享受到更安全的法律环境呢？</p>
-
-<p>不定罪和合法化是两种概念！不定罪是指把性工作当成和其他工作一样，这样让这些性工作者感觉到被法律保护，也更安全。</p>
-
-<p>演讲者加入了红雨伞基金(Red Umbrella Fund<br/>
-)，旨在帮助全世界的性工作者。性工作也是工作，虽然我们很复杂的看待这项工作，但是 她们也想更安全的工作。</p>
-
-<blockquote>
-<p>&ldquo;There&rsquo;s really no such thing as the &lsquo;voiceless&rsquo;. There are only the deliberately silenced, or the preferably unheard.&rdquo;<br/>
-—— Arundhati Roy</p>
-
-<p>真正的无声是不存在的，他们要么是被迫不能发声，要么是被忽略了。</p>
-</blockquote>
-
-<h2 id="toc_1">思考</h2>
-
-<p>我觉得一个工作只要不伤害到自己和别人。就算不喜欢，但是也支持她们拥有更安全的工作环境。</p>
-
-<h2 id="toc_2">视频链接</h2>
-
-<p><a href="http://open.163.com/movie/2016/6/5/A/MBNIDPLFU_MBNNEBG5A.html">http://open.163.com/movie/2016/6/5/A/MBNIDPLFU_MBNNEBG5A.html</a></p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[每日总结]]></title>
-    <link href="caiyongjian.net/14653955692684.html"/>
-    <updated>2016-06-08T22:19:29+08:00</updated>
-    <id>caiyongjian.net/14653955692684.html</id>
-    <content type="html"><![CDATA[
-<h2 id="toc_0">2016年</h2>
-
-<h3 id="toc_1">6月</h3>
-
-<h4 id="toc_2">8日</h4>
-
-<p>Stellaris好玩，两年后原因变成自由主义者，学会和自己相处，两年前高考的结束，我们的合照。</p>
-
-<span id="more"></span><!-- more -->
-
-<h4 id="toc_3">9日</h4>
-
-<p>端午节就是在家懒散的感觉，陪伴家人很开心，玩游戏时间好快啊！</p>
-
-<h4 id="toc_4">10日</h4>
-
-<p>陪妈妈看电影成为不可多得的回忆，以后回来一次就带妈妈去看一次电影吧！等外甥长大了也带他去！！</p>
-
-<h4 id="toc_5">11日</h4>
-
-<p>分开两年，我们都变了，都变了。</p>
-
-<h4 id="toc_6">12日</h4>
-
-<p>终于结束所有考驾照的程序了；做事宁愿没有遗憾，也不希望以后后悔。</p>
-
-<h4 id="toc_7">13日</h4>
-
-<p>不知所云，不知所措；只有看书和踢球在补充能量，收到驾照了。</p>
-
-<h4 id="toc_8">14日</h4>
-
-<p>绝望是另一种希望的开始。</p>
-
-<h4 id="toc_9">15日</h4>
-
-<p>自寻烦恼的完结了《晚安的话》，太闲而想太多，瘆得慌。</p>
-
-<h4 id="toc_10">16日</h4>
-
-<p>珍惜时间，把时间花在在乎自己的人身上，选择温柔的被爱。</p>
-
-<h4 id="toc_11">17日</h4>
-
-<p>就留个念想吧，好聚好散。</p>
-
-<h4 id="toc_12">18日</h4>
-
-<p>无聊的一天，看书看电视剧看电影听音乐。</p>
-
-<h4 id="toc_13">19日</h4>
-
-<p>当你不再具象，我只想要。  </p>
 
 ]]></content>
   </entry>
