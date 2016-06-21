@@ -4,13 +4,189 @@
   <title><![CDATA[蔡永坚的博客]]></title>
   <link href="caiyongjian.net/atom.xml" rel="self"/>
   <link href="caiyongjian.net/"/>
-  <updated>2016-06-21T00:59:25+08:00</updated>
+  <updated>2016-06-21T16:22:44+08:00</updated>
   <id>caiyongjian.net/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[文件的切割和合并]]></title>
+    <link href="caiyongjian.net/14664749598989.html"/>
+    <updated>2016-06-21T10:09:19+08:00</updated>
+    <id>caiyongjian.net/14664749598989.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">2016年06月21日</h2>
+
+<h2 id="toc_1">问题</h2>
+
+<p>需要一个能把文件切割成指定大小和合并起来的程序</p>
+
+<span id="more"></span><!-- more --> 
+
+<h2 id="toc_2">思路</h2>
+
+<h3 id="toc_3">切割</h3>
+
+<ol>
+<li>创建一个输入流读取要切割的文件</li>
+<li>定义切割的大小和存放路径</li>
+<li>用输出流切割文件并命名</li>
+<li>用配置文件记录下切割信息</li>
+</ol>
+
+<pre><code class="language-flow">s=&gt;start: 开始切
+e=&gt;end: 切割完 
+c=&gt;condition: 判断是否存在此目录
+o=&gt;operation: 创建目录
+op=&gt;operation: 读取要切割的文件,定义切割大小和存放路径
+oper=&gt;operation: 切割文件并命名并记录切割信息
+s-&gt;op-&gt;c(yes)-&gt;oper-&gt;e
+c(no)-&gt;o-&gt;oper
+</code></pre>
+
+<h3 id="toc_4">合并</h3>
+
+<ol>
+<li>读取要合并文件目录的配置文件</li>
+<li>读取要合并的文件</li>
+<li>创建集合装载流对象</li>
+<li>枚举集合</li>
+<li>创建序列流装载枚举</li>
+<li>用输出流遍历序列流并写出数据</li>
+</ol>
+
+<pre><code class="language-flow">s=&gt;start: 开始合并
+e=&gt;end: 合并成功
+e1=&gt;end: 合并失败
+c=&gt;condition: 判断是否存在配置文件
+o=&gt;operation: 读取配置文件
+co=&gt;condition: 判断合并文件数量和记录是否一致
+op=&gt;operation: 读取碎片，合并文件
+s-&gt;c(yes)-&gt;o-&gt;co(yes)-&gt;op-&gt;e
+c(no)-&gt;e1
+co(no)-&gt;e1
+</code></pre>
+
+<h2 id="toc_5">代码</h2>
+
+<h3 id="toc_6">切割</h3>
+
+<pre><code class="language-Java">import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class Java20160621_2 {
+        //指定切割大小
+    private static final int SIZE =1024*1024 ;
+
+    public static void main(String[] args) throws IOException {
+            //指定切割文件
+        File file = new File(&quot;Cannie - 遥远的歌.mp3&quot;);
+        FileInputStream fis = new FileInputStream(file);
+        byte[] buf=new byte[SIZE];
+        int len=0;
+        int count=1;
+        //指定存放目录
+        File dir=new File(&quot;/test&quot;);
+        if (!dir.exists()){
+            dir.mkdir();
+        }
+        FileOutputStream fos=null;
+        //按照切割大小开切
+        while ((len=fis.read(buf))!=-1){
+            fos=new FileOutputStream(new File(dir,(count++)+&quot;.part&quot;));
+            fos.write(buf,0,len);
+            fos.close();
+        }
+        //创建配置文件记录信息
+        Properties prop=new Properties();
+        FileOutputStream fis2=new FileOutputStream(new File(dir,count+&quot;.properties&quot;));
+        prop.setProperty(&quot;name&quot;,file.getName());
+        prop.setProperty(&quot;partcount&quot;,count-1+&quot;&quot;);
+        prop.store(fis2,&quot;file count info&quot;);
+
+
+
+        fos.close();
+        fis.close();
+    }
+}
+
+</code></pre>
+
+<h3 id="toc_7">合并</h3>
+
+<pre><code class="language-Java">import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.Properties;
+
+public class Java20160621_3 {
+    public static void main(String[]args) throws IOException {
+
+        //获取指定目录下的配置文件对象
+        File dir=new File(&quot;/test&quot;);
+        File[] files=dir.listFiles(new SuffixFilter(&quot;.properties&quot;));
+        if (files.length!=1){
+            throw new RuntimeException(&quot;我总感觉文件数目不对,要么不存在,要么数量太多&quot;);
+        }
+
+        //记录配置文件对象
+        File confie=files[0];
+
+        //获取该文件中的信息
+        Properties prop=new Properties();
+        FileInputStream fis=new FileInputStream(confie);
+        prop.load(fis);
+        String name=prop.getProperty(&quot;name&quot;);
+        int partcount=Integer.parseInt(prop.getProperty(&quot;partcount&quot;));
+
+        //获取该目录下的碎片文件
+        File[] parts=dir.listFiles(new SuffixFilter(&quot;.part&quot;));
+        if (parts.length!=partcount){
+            throw new RuntimeException(&quot;碎片数量不对劲&quot;);
+        }
+
+        //将碎片文件封装和流对象管理并存储到集合中
+        ArrayList&lt;FileInputStream&gt; al=new ArrayList&lt;FileInputStream&gt;();
+        FileInputStream f=null;
+        for(int i=1;i&lt;=partcount;i++){
+            f=new FileInputStream(new File(dir,i+&quot;.part&quot;));
+            al.add(f);
+//            f.close();
+        }
+
+        //将多个流合并成一个序列流
+        Enumeration en= Collections.enumeration(al);
+        SequenceInputStream sis=new SequenceInputStream(en);
+
+        //读写操作
+        FileOutputStream fos=new FileOutputStream(new File(dir,name));
+        int len=0;
+        byte[] b=new byte[1024];
+        while ((len=sis.read(b))!=-1){
+            fos.write(b,0,len);
+        }
+
+        sis.close();
+        fos.close();
+    }
+}
+
+</code></pre>
+
+<h2 id="toc_8">总结</h2>
+
+<p>顺便推荐了首歌，哟哟切克闹。只为了加深印象，多写写，总会有好处的。</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[音乐的力量 —— 荷塞·安东尼奥·阿布吕尔]]></title>
@@ -128,7 +304,7 @@ e=&gt;end: 结束
 o=&gt;operation: 创建输入流
 op=&gt;operation: 创建集合装载输入流
 ope=&gt;operation: 枚举遍历集合
-oper=&gt;operation: 集合流装载枚举结构
+oper=&gt;operation: 序列流装载枚举结构
 opera=&gt;operation: 用输出流写文件
 s-&gt;o-&gt;op-&gt;ope-&gt;oper-&gt;opera-&gt;e
 </code></pre>
@@ -150,7 +326,7 @@ public class Java20160621_1 {
        }
        //用枚举遍历集合
        Enumeration&lt;FileInputStream&gt; en= Collections.enumeration(al);
-        //用集合流装载枚举结构
+        //用序列流装载枚举
         SequenceInputStream sis=new SequenceInputStream(en);
         FileOutputStream fos=new FileOutputStream(&quot;1234.txt&quot;);
         byte[] buf=new byte[1024];
@@ -1350,86 +1526,6 @@ Your browser does not support the audio element.<br/>
 <h2 id="toc_2">视频链接</h2>
 
 <p><a href="http://open.163.com/movie/2016/6/H/A/MBL7IDHAU_MBL7JV9HA.html">http://open.163.com/movie/2016/6/H/A/MBL7IDHAU_MBL7JV9HA.html</a></p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[In My Life —— The Beatles]]></title>
-    <link href="caiyongjian.net/14660025264741.html"/>
-    <updated>2016-06-15T22:55:26+08:00</updated>
-    <id>caiyongjian.net/14660025264741.html</id>
-    <content type="html"><![CDATA[
-<h3 id="toc_0">2016年06月15日</h3>
-
-<h3 id="toc_1">推荐指数：8.5/10</h3>
-
-<h2 id="toc_2">歌词</h2>
-
-<span id="more"></span><!-- more -->
-
-<p>There are places I&rsquo;ll remember <br/>
-有些地方我会铭记<br/>
-All my life, though some have changed <br/>
-尽我一生铭记 虽然有些已经沧海桑田<br/>
-Some forever, not for better <br/>
-有些会成为永恒 不会更加美好<br/>
-Some have gone and some remain <br/>
-而有些已经消失 有些侥幸留存<br/>
-All these places had their moments <br/>
-所有这些地方都有他们神圣的瞬间<br/>
-With lovers and friends, I still can recall <br/>
-爱人和朋友相聚一堂 情景历历在目<br/>
-Some are dead and some are living <br/>
-有些人死去 有些人安然至今<br/>
-In my life, I&rsquo;ve loved them all <br/>
-无论怎样 我将终其一生挚爱他们<br/>
-But of all these friends and lovers <br/>
-但在所有这些朋友和爱人中间<br/>
-There is no one compares with you <br/>
-没人能够和你相提并论<br/>
-And these memories lose their meaning <br/>
-当这些记忆失去它们原本的含义<br/>
-When I think of love as something new <br/>
-我也会追逐新的爱情<br/>
-Though I know I&rsquo;ll never lose affection <br/>
-虽然我知道我从未停止<br/>
-For people and things that went before <br/>
-对消逝人事的种种思念<br/>
-I know I&rsquo;ll often stop and think about them <br/>
-我知道我会经常停下来想念他们<br/>
-In my life, I&rsquo;ll love you more <br/>
-而我将终其一生爱你更深</p>
-
-<h2 id="toc_3">简介</h2>
-
-<p>《In My Life》是英国披头士乐队1965年的一首歌曲，收录于专辑《Rubber Soul》中。该曲由约翰·列侬与保罗·麦卡特尼共同创作。列侬最先完成了这首歌曲的初始版本，但麦卡特尼促成了这首歌曲的最终版本。这首歌在滚石杂志的“滚石杂志五百大歌曲”排行榜中被列为第23名，魔力杂志在2000年把这首歌评为世界上有史以来最好的歌曲。</p>
-
-<h2 id="toc_4">评价</h2>
-
-<p>从歌词来说，这首歌描述了一个人感性的人生总结。听起来舒服到极致，这样形容这种感觉，感觉一切都看开的样子。</p>
-
-<h2 id="toc_5">推荐理由</h2>
-
-<p>其实关于这个分类的文章，第一首歌选什么好呢？有那么多心头好的歌曲，选哪首我都怕觉得自己偏心。但是我觉得选这首自己肯定不会后悔。其实如何评价这首歌我觉得自己是不够格的，尤其是自己还是个音乐的门外汉，只能从自己的喜好喝感觉来评价音乐。这首歌有那么多翻唱，足以说明这首歌在音乐史上可以占着属于它自己的地位。</p>
-
-<p>要评价这首歌，就肯定绕不开披头士乐队(The Beatles)了，评价起这个乐队的成就会让我感到自身词语的匮乏。总觉得约翰·列侬和保罗·麦卡特尼这两个极富才华的人在同一个乐队中，如鱼得水，一起把好听的旋律都写光了。反正以后肯定会在这个栏目的文章看到更多他们的音乐的。所以就在第一次谈论到他们的时候，给予他们一个属于他们地位的评价吧。</p>
-
-<p><strong>披头士乐队开创了一个属于他们自己的时代，改变了音乐史，影响了在他们之后一代又一代的音乐人！</strong></p>
-
-<p>我心中的好音乐就像这样，歌词富有感情，编曲舒服。这披头士中的所有歌中我最偏好这首，谨以介绍这首歌来表达对披头士乐队的敬意。</p>
-
-<p><strong>无比的释怀与看开，人生如此，始终偏爱你多一点</strong></p>
-
-<h2 id="toc_6">题外话</h2>
-
-<p>如果有这样的一个人，不管是否还在你身边。不管物是人非，她对你一直都有特殊的意义，这辈子我始终偏爱你多一点。</p>
-
-<h2 id="toc_7">链接</h2>
-
-<p><audio src="music/John Lennon - In My Life.mp3" controls="controls"><br/>
-Your browser does not support the audio element.<br/>
-</audio></p>
 
 ]]></content>
   </entry>

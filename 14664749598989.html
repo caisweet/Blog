@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  你有拖延症吗？ 续集 —— Adam Grant - 蔡永坚的博客
+  文件的切割和合并 - 蔡永坚的博客
   
   </title>
   
@@ -103,14 +103,14 @@
       <div class="markdown-body article-wrap">
        <div class="article">
           
-          <h1>你有拖延症吗？ 续集 —— Adam Grant</h1>
+          <h1>文件的切割和合并</h1>
      
         <div class="read-more clearfix">
-          <span class="date">2016/6/3</span>
+          <span class="date">2016/6/21</span>
 
           <span>posted in&nbsp;</span> 
           
-              <span class="posted-in"><a href='ted.html'>TED</a></span>
+              <span class="posted-in"><a href='code.html'>编程</a></span>
            
          
           <span class="comments">
@@ -123,31 +123,172 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <h2 id="toc_0">2016年06月02日</h2>
+      <h2 id="toc_0">2016年06月21日</h2>
 
-<p>演讲者是个拖延症相反的人，他是个提前症患者。习惯很早就把事情都干完。直到他遇到一个团队希望他投资，这个团队进度很慢，而且留有后路，一切慢悠悠。后来他们成功了，才后悔没有投资。</p>
+<h2 id="toc_1">问题</h2>
 
-<span id="more"></span><!-- more -->
+<p>需要一个能把文件切割成指定大小和合并起来的程序</p>
 
-<p>所以演讲者发现，创新者，不止有好主意，而且会改变世界。一面研究他们的特征：<br/>
-1：进度太慢<br/>
-作者一直以他为提前症为荣，直到他的学生说拖延让她有更好的创意。对于创新而言，拖延是美德。<br/>
-市场对于第一个不重视，而是做得更好的那一个更重视。<br/>
-2：充满怀疑<br/>
-看起来他们很自信，但是背后很自疑，亦或是对主意怀疑。<br/>
-最开始都是垃圾，还没完成，然后完善得更好。<br/>
-主动去怀疑默认选项，去寻找更好的选择。害怕失败，但是更害怕不去尝试！从长远来看，不是我们做了什么，而是我们没有做什么。<br/>
-3：原始<br/>
-成功者往往是失败得最多的人，所以当一个人去尝试很多次，总会有一次成功的。其次有的人只尝试了一次就成功，承认运气和天赋的存在，但是很少！<br/>
-其实拖延症和提前症都创新不好，只有刚刚好，花点时间考虑，才有最好的创意。</p>
+<span id="more"></span><!-- more --> 
 
-<h2 id="toc_1">思考</h2>
+<h2 id="toc_2">思路</h2>
 
-<p>不要惧怕拖延，有考虑的去行动！不要盲目。其次多尝试，不要害怕失败！</p>
+<h3 id="toc_3">切割</h3>
 
-<h2 id="toc_2">视频链接</h2>
+<ol>
+<li>创建一个输入流读取要切割的文件</li>
+<li>定义切割的大小和存放路径</li>
+<li>用输出流切割文件并命名</li>
+<li>用配置文件记录下切割信息</li>
+</ol>
 
-<p><a href="http://open.163.com/movie/2016/4/9/7/MBKJF3H00_MBKJGU197.html">http://open.163.com/movie/2016/4/9/7/MBKJF3H00_MBKJGU197.html</a></p>
+<pre><code class="language-flow">s=&gt;start: 开始切
+e=&gt;end: 切割完 
+c=&gt;condition: 判断是否存在此目录
+o=&gt;operation: 创建目录
+op=&gt;operation: 读取要切割的文件,定义切割大小和存放路径
+oper=&gt;operation: 切割文件并命名并记录切割信息
+s-&gt;op-&gt;c(yes)-&gt;oper-&gt;e
+c(no)-&gt;o-&gt;oper
+</code></pre>
+
+<h3 id="toc_4">合并</h3>
+
+<ol>
+<li>读取要合并文件目录的配置文件</li>
+<li>读取要合并的文件</li>
+<li>创建集合装载流对象</li>
+<li>枚举集合</li>
+<li>创建序列流装载枚举</li>
+<li>用输出流遍历序列流并写出数据</li>
+</ol>
+
+<pre><code class="language-flow">s=&gt;start: 开始合并
+e=&gt;end: 合并成功
+e1=&gt;end: 合并失败
+c=&gt;condition: 判断是否存在配置文件
+o=&gt;operation: 读取配置文件
+co=&gt;condition: 判断合并文件数量和记录是否一致
+op=&gt;operation: 读取碎片，合并文件
+s-&gt;c(yes)-&gt;o-&gt;co(yes)-&gt;op-&gt;e
+c(no)-&gt;e1
+co(no)-&gt;e1
+</code></pre>
+
+<h2 id="toc_5">代码</h2>
+
+<h3 id="toc_6">切割</h3>
+
+<pre><code class="language-Java">import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class Java20160621_2 {
+        //指定切割大小
+    private static final int SIZE =1024*1024 ;
+
+    public static void main(String[] args) throws IOException {
+            //指定切割文件
+        File file = new File(&quot;Cannie - 遥远的歌.mp3&quot;);
+        FileInputStream fis = new FileInputStream(file);
+        byte[] buf=new byte[SIZE];
+        int len=0;
+        int count=1;
+        //指定存放目录
+        File dir=new File(&quot;/test&quot;);
+        if (!dir.exists()){
+            dir.mkdir();
+        }
+        FileOutputStream fos=null;
+        //按照切割大小开切
+        while ((len=fis.read(buf))!=-1){
+            fos=new FileOutputStream(new File(dir,(count++)+&quot;.part&quot;));
+            fos.write(buf,0,len);
+            fos.close();
+        }
+        //创建配置文件记录信息
+        Properties prop=new Properties();
+        FileOutputStream fis2=new FileOutputStream(new File(dir,count+&quot;.properties&quot;));
+        prop.setProperty(&quot;name&quot;,file.getName());
+        prop.setProperty(&quot;partcount&quot;,count-1+&quot;&quot;);
+        prop.store(fis2,&quot;file count info&quot;);
+
+
+
+        fos.close();
+        fis.close();
+    }
+}
+
+</code></pre>
+
+<h3 id="toc_7">合并</h3>
+
+<pre><code class="language-Java">import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.Properties;
+
+public class Java20160621_3 {
+    public static void main(String[]args) throws IOException {
+
+        //获取指定目录下的配置文件对象
+        File dir=new File(&quot;/test&quot;);
+        File[] files=dir.listFiles(new SuffixFilter(&quot;.properties&quot;));
+        if (files.length!=1){
+            throw new RuntimeException(&quot;我总感觉文件数目不对,要么不存在,要么数量太多&quot;);
+        }
+
+        //记录配置文件对象
+        File confie=files[0];
+
+        //获取该文件中的信息
+        Properties prop=new Properties();
+        FileInputStream fis=new FileInputStream(confie);
+        prop.load(fis);
+        String name=prop.getProperty(&quot;name&quot;);
+        int partcount=Integer.parseInt(prop.getProperty(&quot;partcount&quot;));
+
+        //获取该目录下的碎片文件
+        File[] parts=dir.listFiles(new SuffixFilter(&quot;.part&quot;));
+        if (parts.length!=partcount){
+            throw new RuntimeException(&quot;碎片数量不对劲&quot;);
+        }
+
+        //将碎片文件封装和流对象管理并存储到集合中
+        ArrayList&lt;FileInputStream&gt; al=new ArrayList&lt;FileInputStream&gt;();
+        FileInputStream f=null;
+        for(int i=1;i&lt;=partcount;i++){
+            f=new FileInputStream(new File(dir,i+&quot;.part&quot;));
+            al.add(f);
+//            f.close();
+        }
+
+        //将多个流合并成一个序列流
+        Enumeration en= Collections.enumeration(al);
+        SequenceInputStream sis=new SequenceInputStream(en);
+
+        //读写操作
+        FileOutputStream fos=new FileOutputStream(new File(dir,name));
+        int len=0;
+        byte[] b=new byte[1024];
+        while ((len=sis.read(b))!=-1){
+            fos.write(b,0,len);
+        }
+
+        sis.close();
+        fos.close();
+    }
+}
+
+</code></pre>
+
+<h2 id="toc_8">总结</h2>
+
+<p>顺便推荐了首歌，哟哟切克闹。只为了加深印象，多写写，总会有好处的。</p>
 
       </div>
 
@@ -155,16 +296,13 @@
         <div class="large-6 columns">
         <p class="text-left" style="padding:15px 0px;">
       
-          <a href="14649438014608.html" 
-          title="Previous Post: 晚安的话">&laquo; 晚安的话</a>
-      
         </p>
         </div>
         <div class="large-6 columns">
       <p class="text-right" style="padding:15px 0px;">
       
-          <a  href="14649647799901.html" 
-          title="Next Post: 你有拖延症吗？ —— Tim Urban">你有拖延症吗？ —— Tim Urban &raquo;</a>
+          <a  href="14664446789812.html" 
+          title="Next Post: 音乐的力量 —— 荷塞·安东尼奥·阿布吕尔">音乐的力量 —— 荷塞·安东尼奥·阿布吕尔 &raquo;</a>
       
       </p>
         </div>

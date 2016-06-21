@@ -145,7 +145,7 @@ e=&gt;end: 结束
 o=&gt;operation: 创建输入流
 op=&gt;operation: 创建集合装载输入流
 ope=&gt;operation: 枚举遍历集合
-oper=&gt;operation: 集合流装载枚举结构
+oper=&gt;operation: 序列流装载枚举结构
 opera=&gt;operation: 用输出流写文件
 s-&gt;o-&gt;op-&gt;ope-&gt;oper-&gt;opera-&gt;e
 </code></pre>
@@ -167,7 +167,7 @@ public class Java20160621_1 {
        }
        //用枚举遍历集合
        Enumeration&lt;FileInputStream&gt; en= Collections.enumeration(al);
-        //用集合流装载枚举结构
+        //用序列流装载枚举
         SequenceInputStream sis=new SequenceInputStream(en);
         FileOutputStream fos=new FileOutputStream(&quot;1234.txt&quot;);
         byte[] buf=new byte[1024];
@@ -308,6 +308,12 @@ var duoshuoQuery = {short_name:"caiyongjian"};
 	      
 		      
 			      <li class="post">
+			        <a href="14664749598989.html">文件的切割和合并</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="14664446789812.html">音乐的力量 —— 荷塞·安东尼奥·阿布吕尔</a>
 			      </li>
 		     
@@ -327,12 +333,6 @@ var duoshuoQuery = {short_name:"caiyongjian"};
 		      
 			      <li class="post">
 			        <a href="14664254499123.html">云雀叫了一整天 —— 木心</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="14664103287553.html">获取指定后缀名文件的绝对路径</a>
 			      </li>
 		     
 		  
