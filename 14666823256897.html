@@ -127,7 +127,7 @@
 
 <h2 id="toc_1">问题</h2>
 
-<p>有一串字符串，字母混合汉字。由于汉子占两个字节，如果按字节数截取，截取刚刚好的数量，正常解码显示</p>
+<p>在GBK编码情况下，有一串字符串，字母混合汉字。由于汉字占两个字节，如果按字节数截取，截取刚刚好的数量，正常解码显示</p>
 
 <span id="more"></span><!-- more --> 
 
@@ -143,19 +143,9 @@
 <li>取模2是0就直接输出，有余数就-1输出</li>
 </ol>
 
-<pre><code class="language-flow">s=&gt;start:
-e=&gt;end:
-o=&gt;operation
-
-</code></pre>
-
 <h2 id="toc_3">代码</h2>
 
-<pre><code class="language-Java">#
-#Mon Jun 20 15:14:15 CST 2016
-time=1
-
-import java.io.UnsupportedEncodingException;
+<pre><code class="language-Java">import java.io.UnsupportedEncodingException;
 
 public class Java20160623_1 {
     public static void main(String[]args) throws UnsupportedEncodingException {
@@ -195,11 +185,16 @@ public class Java20160623_1 {
 
 <h2 id="toc_4">总结</h2>
 
+<p>编码解码问题需要根据编码表的特性分析从而进行解决。</p>
+
       </div>
 
       <div class="row">
         <div class="large-6 columns">
         <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="14667005968720.html" 
+          title="Previous Post: 思念是一种病 —— 张震岳">&laquo; 思念是一种病 —— 张震岳</a>
       
         </p>
         </div>
@@ -313,6 +308,18 @@ var duoshuoQuery = {short_name:"caiyongjian"};
 	      
 		      
 			      <li class="post">
+			        <a href="14667049981601.html">生命的每一步 —— Joshua Prager</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14667005968720.html">思念是一种病 —— 张震岳</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="14666823256897.html">截取字节解码</a>
 			      </li>
 		     
@@ -326,18 +333,6 @@ var duoshuoQuery = {short_name:"caiyongjian"};
 		      
 			      <li class="post">
 			        <a href="14666159655150.html">Bohemian Rhapsody —— Queen</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="14665651364495.html">管道流简例</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="14653955692684.html">每日总结</a>
 			      </li>
 		     
 		  
