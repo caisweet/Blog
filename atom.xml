@@ -4,13 +4,94 @@
   <title><![CDATA[蔡永坚的博客]]></title>
   <link href="caiyongjian.net/atom.xml" rel="self"/>
   <link href="caiyongjian.net/"/>
-  <updated>2016-06-23T02:20:11+08:00</updated>
+  <updated>2016-06-23T02:24:39+08:00</updated>
   <id>caiyongjian.net/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[截取字节解码]]></title>
+    <link href="caiyongjian.net/14666823256897.html"/>
+    <updated>2016-06-23T19:45:25+08:00</updated>
+    <id>caiyongjian.net/14666823256897.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">2016年06月23日</h2>
+
+<h2 id="toc_1">问题</h2>
+
+<p>有一串字符串，字母混合汉字。由于汉子占两个字节，如果按字节数截取，截取刚刚好的数量，正常解码显示</p>
+
+<span id="more"></span><!-- more --> 
+
+<h2 id="toc_2">思路</h2>
+
+<ol>
+<li>获取字符串的长度</li>
+<li>设置要获取的字节长度</li>
+<li>用字节数组存储字符串</li>
+<li>判断截取的字节编码正负</li>
+<li>如果正就直接解码输出</li>
+<li>负数就往回遍历直到正数并计算个数</li>
+<li>取模2是0就直接输出，有余数就-1输出</li>
+</ol>
+
+<pre><code class="language-flow">s=&gt;start:
+e=&gt;end:
+o=&gt;operation
+
+</code></pre>
+
+<h2 id="toc_3">代码</h2>
+
+<pre><code class="language-Java">#
+#Mon Jun 20 15:14:15 CST 2016
+time=1
+
+import java.io.UnsupportedEncodingException;
+
+public class Java20160623_1 {
+    public static void main(String[]args) throws UnsupportedEncodingException {
+        String str=new String(&quot;abc原来你也sdsd在这sds里s&quot;);
+        //获取字节串长度
+        int len=str.getBytes(&quot;GBK&quot;).length;
+        for (int x=1;x&lt;len;x++){
+        System.out.println(&quot;截取&quot;+x+&quot;个字节,结果是&quot;+getByte(str,x));
+    }
+    }
+
+    private static String getByte(String str,int len) throws UnsupportedEncodingException {
+        //创建数组存储字节串
+        byte[] buf=str.getBytes(&quot;GBK&quot;);
+        int count=0;
+        //遍历要截取的字节窜
+        for (int x=len-1;x&gt;=0;x--){
+            //大于0说明是单个字节
+            if (buf[x]&gt;0){
+                break;
+            }else{
+                //否则说明是半个中文
+                count++;
+            }
+        }
+        if (count%2==0){
+            //刚刚好字节输出
+            return new String(buf,0,len,&quot;GBK&quot;);
+        }else{
+            //否则倒退1位输出
+            return new String(buf,0,len-1,&quot;GBK&quot;);
+
+        }
+    }
+}
+</code></pre>
+
+<h2 id="toc_4">总结</h2>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[坠入爱河的大脑 —— Helen Fisher]]></title>
@@ -20,7 +101,7 @@
     <content type="html"><![CDATA[
 <h2 id="toc_0">2016年06月23日</h2>
 
-<p>演讲者的团队对恋爱的失恋的人核共振扫描大脑来分析。</p>
+<p>演讲者的团队对恋爱的或失恋的人核共振扫描大脑来分析。</p>
 
 <span id="more"></span><!-- more -->
 
@@ -1630,35 +1711,6 @@ public class Java20160619 {
 <p><audio src="music/不多 - 李志.mp3" controls="controls"><br/>
 Your browser does not support the audio element.<br/>
 </audio></p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[数学为何如此迷人？ —— Cédric Villani]]></title>
-    <link href="caiyongjian.net/14662448454157.html"/>
-    <updated>2016-06-18T18:14:05+08:00</updated>
-    <id>caiyongjian.net/14662448454157.html</id>
-    <content type="html"><![CDATA[
-<h2 id="toc_0">2016年06月18日</h2>
-
-<p>演讲者认为法国人的一大优点就是数学。数学看起来也许很枯燥，但是实际上是推理，所以并不枯燥。而且解决一个难题所带来的快感能持续很久。</p>
-
-<span id="more"></span><!-- more -->
-
-<p>高斯曲线被认为是普世性很高的曲线。数学不仅能带来快感，也能改变我们的世界观。<br/>
-数学让我们能够超越直接，探索超出我们想象的空间的事物。<br/>
-数学家可能是最好的工作，每一个细分领域都有巨大的潜能。算法也是从数学里提取出来，数学更显得迷人。</p>
-
-<p>演讲者自己也是2010年菲尔兹奖的获得者之一，他想跟我们分享一个数学的美好之处。</p>
-
-<h2 id="toc_1">思考</h2>
-
-<p>对于我们大部分人来说，都把数学当成一种枯燥无味的科目。但其实在少部分人来看，数学是很美好的。也正因为这样，他们一个接一个投身于数学研究之中。而数学又解决了许多现实生活中的应用问题。数学的宝藏无穷无尽，只等待人们去挖掘。</p>
-
-<h2 id="toc_2">视频链接</h2>
-
-<p><a href="http://open.163.com/movie/2016/7/L/V/MBOEVN7AF_MBOH5P5LV.html">http://open.163.com/movie/2016/7/L/V/MBOEVN7AF_MBOH5P5LV.html</a></p>
 
 ]]></content>
   </entry>

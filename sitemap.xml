@@ -2,7 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
   <loc>caiyongjian.net/</loc>
-  <lastmod>2016-06-23T02:24:38+08:00</lastmod>
+  <lastmod>2016-06-23T21:37:25+08:00</lastmod>
+</url>
+
+<url>
+  <loc>caiyongjian.net/14666823256897.html</loc>
+  <lastmod>2016-06-23T19:45:25+08:00</lastmod>
 </url>
 
 <url>
@@ -243,6 +248,10 @@
 
 
 <url>
+  <loc>caiyongjian.net/write.html</loc>
+</url>
+
+<url>
   <loc>caiyongjian.net/code.html</loc>
 </url>
 
@@ -260,10 +269,6 @@
 
 <url>
   <loc>caiyongjian.net/read.html</loc>
-</url>
-
-<url>
-  <loc>caiyongjian.net/write.html</loc>
 </url>
 
 <url>
