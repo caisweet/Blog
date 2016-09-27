@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  文字 - 蔡永坚的博客
+  CSS - 蔡永坚的博客
   
   </title>
   
@@ -92,69 +92,154 @@
        
 
  <script type="text/javascript">
-	$(function(){
-		$('#menu_item_index').addClass('is_active');
-	});
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
 </script>
 <div class="row">
-	<div class="large-8 medium-8 columns">
-		<div class="markdown-body home-categories">
-		
-			<div class="article">
-                <a class="clearlink" href="14649438014608.html">
-                
-                  <h1>晚安的话</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h2 id="toc_0">2016年06月15日</h2>
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>CSS</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2016/6/30</span>
 
-<h2 id="toc_1">前言</h2>
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='code.html'>编程</a></span>
+           
+         
+          <span class="comments">
+            
 
-<p>刚开始在微博上发行这些句子时没有想到能坚持一年多，句子的来源多是喜欢的歌词、书和自己的遐想。发行的一年里也是磕磕绊绊，因为高三住宿的原因经常是在周末回去整理一星期的量然后每天晚上晚自修完陪她走到宿舍后回去一句一句发行。分开后也都删光了。只留下这篇草稿，虽然结果不了了之，但谨已这篇文字表示纪念。</p>
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h2 id="toc_0">css和html相结合的方式</h2>
+
+<p>1,每一个html标签中都有一个style样式属性<br/>
+2,使用style标签的方式,一般都定义在head标签中<br/>
+3,使用@import导入css文件。使用css代码导入<br/>
+4,使用link导入。使用html链接</p>
+
+<p>优先级:<br/>
+由上到下,由外到内。优先级从低到高<br/>
+越具体的选择器优先级越高<br/>
+style属性&gt;id选择器&gt;类选择器&gt;标签选择器</p>
+
+<p>CSS代码格式:<br/>
+选择器名称{属性名:属性值; 属性名:属性值; &hellip;..}</p>
+
+<h2 id="toc_1">基本选择器:</h2>
+
+<p>就是指定CSS要作用的标签,那个标签的名称就是选择器。意为:选择哪个容器<br/>
+选择器共有三种<br/>
+a) html标签名选择器。使用的就是html的标签名<br/>
+b) class选择器。使用的就是标签中的class属性<br/>
+c) id选择器。使用的就是标签中的id属性<br/>
+每一个标签都定义了class属性和id属性。用于对标签进行标识,方便对标签进行操作。<br/>
+在定义中,多个标签的class属性值可以相同,而id值要唯一,因为该属性除了给css使用,<br/>
+还可以被js使用,id通常都是为了标示页面中一些特定区域使用的</p>
+
+<h2 id="toc_2">扩展选择器:</h2>
+
+<p>a)关联选择器<br/>
+选择器中的选择器<br/>
+标签是可以嵌套的,要让相同标签中的不同标签现实不同样式,就可以用此选择器<br/>
+例:<br/>
+p{ color:#00FF00; }<br/>
+p b{ color:#00FF000; }<br/>
+<p>P标签<b>你好哇</b>未来的你</p><br/>
+<p>呵呵</p></p>
+
+<p>b)组合选择器<br/>
+对多个不同选择器进行相同样式设置的时候应用此选择器<br/>
+p,div { color:#FF0000 }<br/>
+<p>p标签现实段落</p><br/>
+<div>DIV标签显示段落</div></p>
+
+<p>c)伪元素选择器<br/>
+其实就在html中预先定义好的一些选择器。称为伪元素,是CSS的术语。<br/>
+格式:标签名:伪元素.类名 标签名.类名:伪元素 都可以<br/>
+a:link 超链接未点击状态<br/>
+a:visited 被访问后的状态<br/>
+a:hover 光标移到超链接上的状态(未点击)<br/>
+a:active 点击超链接时的状态<br/>
+使用顺序 L - V - H - A<br/>
+p:first-line 段落的第一行文本<br/>
+p:first-letter 段落中的第一个字母<br/>
+:focus 具有焦点的元素</p>
 
 
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                   <a href="14649438014608.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2016/6/3</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='write.html'>文字</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
+    
 
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-              
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="14678183567678.html" 
+          title="Previous Post: Java">&laquo; Java</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="14672754511222.html" 
+          title="Next Post: 基本标签">基本标签 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- 多说评论框 start -->
+	<div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"caiyongjian"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
 
 
-			<div class="row">
-			  <div class="large-6 columns">
-			  <p class="text-left" style="padding-top:25px;">
-			   
-			  </p>
-			  </div>
-			  <div class="large-6 columns">
-			<p class="text-right" style="padding-top:25px;">
-			
-			</p>
-			  </div>
-			</div>
-		</div>
-	</div><!-- large 8 -->
+
 
  <div class="large-4 medium-4 columns">
   <div class="hide-for-small">

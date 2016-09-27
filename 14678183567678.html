@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  谢谢 - 蔡永坚的博客
+  Java - 蔡永坚的博客
   
   </title>
   
@@ -20,7 +20,7 @@
   <script>hljs.initHighlightingOnLoad();</script>
 <script type="text/javascript">
   function before_search(){
-    var searchVal = 'site:www.caiyongjian.net ' + document.getElementById('search_input').value;
+    var searchVal = 'site:caiyongjian.net ' + document.getElementById('search_input').value;
     document.getElementById('search_q').value = searchVal;
     return true;
   }
@@ -39,9 +39,11 @@
   <div class="row">
       <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
         <ul id="main-menu" class="left">
-        <li id="menu_item_index"><a href="index.html">HOME</a></li>
-        <li id="menu_item_archives"><a href="archives.html">Archives</a></li>
-        <li id="menu_item_about"><a href="about.html">ABOUT</a></li>
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
         </ul>
 
         <ul class="right" id="search-wrap">
@@ -73,6 +75,10 @@
 
     <li><label>Categories</label></li>
 
+        
+            <li><a href="write.html">文字</a></li>
+        
+            <li><a href="code.html">编程</a></li>
          
 
       </ul>
@@ -95,12 +101,14 @@
       <div class="markdown-body article-wrap">
        <div class="article">
           
-          <h1>谢谢</h1>
+          <h1>Java</h1>
      
         <div class="read-more clearfix">
-          <span class="date">2016/6/17</span>
+          <span class="date">2016/7/6</span>
 
+          <span>posted in&nbsp;</span> 
           
+              <span class="posted-in"><a href='code.html'>编程</a></span>
            
          
           <span class="comments">
@@ -113,13 +121,15 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <p>伟娜，好久没有这样叫你了。以前很喜欢叫你阿伟，可你嫌难听，就叫你成娜姐了。没过多久，大家也都这样称呼你了。</p>
+      <h2 id="toc_0">基础</h2>
 
-<p>一直在想，如果有一天在路上遇见你了，会跟你说什么。可能还是<strong>你过得好吗?</strong>之类的。以前看电视剧久别重逢的人这样说觉得多土，想明白了之后，两个人太久不见，什么情况都不了解，这样说或许是最自然的。</p>
+<p>javac 编译java文件<br/>
+java 运行编译后的文件</p>
 
-<p>分开之后，千言万语不如沉默，沉默不如感谢。所以还是那两个字，谢谢。知道你有男朋友了，就祝你们越来越幸福吧，我会尽早把你以后的礼金赚到的。</p>
+<p>最小单位是类，最简单的类是空类。</p>
 
-<p>好像也没什么想说的了，就这样吧。</p>
+
+    
 
       </div>
 
@@ -132,12 +142,42 @@
         <div class="large-6 columns">
       <p class="text-right" style="padding:15px 0px;">
       
+          <a  href="14672757283069.html" 
+          title="Next Post: CSS">CSS &raquo;</a>
+      
       </p>
         </div>
       </div>
       <div class="comments-wrap">
         <div class="share-comments">
-          
+          <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- 多说评论框 start -->
+	<div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"caiyongjian"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
 
           
 
@@ -155,9 +195,11 @@
     <div id="sidebar" class="sidebar">
           <div id="site-info" class="site-info">
             
-            <div class="site-a-logo"><img src="asset/img/psb.jpg"></div>
-                <h1>蔡永坚</h1>
-                <div class="site-des">be a better man</div>
+                <h1>蔡永坚的博客</h1>
+                  <div class="site-des"></div>
+                <div class="site-a-logo"><img src="asset/img/psb.jpg"></div>
+                    <h1>蔡永坚</h1>
+                      <div class="site-des">be a better man</div>
                 <div class="social">
 
 
@@ -170,14 +212,16 @@
 
 
 
-  <!-- <a class="rss" href="atom.xml" title="RSS">RSS</a> -->
+  <!-- <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a> -->
   <a class="weibo" target="_blank" href="http://www.weibo.com/944208351" title="Weibo">Weibo</a>
   <a class="twitter" target="_blank" href="https://twitter.com/caiyongjian7" title="Twitter">Twitter</a>
   <a class="instagram" target="<_blank></_blan>" href="https://www.instagram.com/caiyongjian/" title="Instagram">Instagram</a>
   <a class="github" target="_blank" href="https://github.com/caisweet" title="GitHub">GitHub</a>
-
               	 </div>
           	</div>
+
+             
+
               <div id="site-categories" class="side-item ">
                 <div class="side-header">
                   <h2>Categories</h2>
@@ -185,6 +229,10 @@
                 <div class="side-content">
 
       	<p class="cat-list">
+        
+            <a href="write.html"><strong>文字</strong></a>
+        
+            <a href="code.html"><strong>编程</strong></a>
         
         </p>
 
@@ -201,9 +249,49 @@
 	      
 		      
 			      <li class="post">
-			        <a href="14661769390649.html">谢谢</a>
+			        <a href="14678183567678.html">Java</a>
 			      </li>
 		     
+		  
+		      
+			      <li class="post">
+			        <a href="14672757283069.html">CSS</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14672754511222.html">基本标签</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14672751205880.html">GET提交和POST提交的区别?</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14666901979130.html">IO流总结</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
 		  
 		  		</ul>
                 </div>
@@ -216,8 +304,8 @@
  <div class="page-bottom clearfix">
   <div class="row">
    <p class="copyright">Copyright &copy; 2011-2014
-Powered by <a target="_blank" href="http://weibo.com/u/2463324911">weine</a>,&nbsp;
-This <a target="_blank" href="letter.html">letter</a> is to thank you for your love.</p>
+This <a target="_blank" href="http://caiyongjian.net/14661769390649.html">letter</a>&nbsp;
+is for<a target="_blank" href="http://github.com">weine</a>to thank you for your love.</p>
   </div>
 </div>
 
@@ -245,9 +333,18 @@ This <a target="_blank" href="letter.html">letter</a> is to thank you for your l
 
     </script>
 
-    
+    <script src="asset/chart/all-min.js"></script><script type="text/javascript">$(function(){    var mwebii=0;    var mwebChartEleId = 'mweb-chart-ele-';    $('pre>code').each(function(){        mwebii++;        var eleiid = mwebChartEleId+mwebii;        if($(this).hasClass('language-sequence')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = Diagram.parse($(this).text());            diagram.drawSVG(eleiid,{theme: 'simple'});        }else if($(this).hasClass('language-flow')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = flowchart.parse($(this).text());            diagram.drawSVG(eleiid);        }    });});</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-78758383-1', 'auto');
+  ga('send', 'pageview');
 
+</script>
 
   </body>
 </html>

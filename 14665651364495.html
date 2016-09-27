@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  文字 - 蔡永坚的博客
+  管道流简例 - 蔡永坚的博客
   
   </title>
   
@@ -92,69 +92,191 @@
        
 
  <script type="text/javascript">
-	$(function(){
-		$('#menu_item_index').addClass('is_active');
-	});
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
 </script>
 <div class="row">
-	<div class="large-8 medium-8 columns">
-		<div class="markdown-body home-categories">
-		
-			<div class="article">
-                <a class="clearlink" href="14649438014608.html">
-                
-                  <h1>晚安的话</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h2 id="toc_0">2016年06月15日</h2>
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>管道流简例</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2016/6/22</span>
 
-<h2 id="toc_1">前言</h2>
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='java.html'>Java</a></span>
+           
+         
+          <span class="comments">
+            
 
-<p>刚开始在微博上发行这些句子时没有想到能坚持一年多，句子的来源多是喜欢的歌词、书和自己的遐想。发行的一年里也是磕磕绊绊，因为高三住宿的原因经常是在周末回去整理一星期的量然后每天晚上晚自修完陪她走到宿舍后回去一句一句发行。分开后也都删光了。只留下这篇草稿，虽然结果不了了之，但谨已这篇文字表示纪念。</p>
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h2 id="toc_0">2016年06月22日</h2>
+
+<h2 id="toc_1">问题</h2>
+
+<p>用管道流读写文件</p>
+
+<span id="more"></span><!-- more --> 
+
+<h2 id="toc_2">思路</h2>
+
+<ol>
+<li>创建管道输入输出流，并关联</li>
+<li>实现Runable接口创建两个线程任务分别接入输入输出流</li>
+<li>创建线程跑任务</li>
+</ol>
+
+<pre><code class="language-flow">s=&gt;start: 开始
+e=&gt;end: 结束
+o=&gt;operation: 创建管道输入输出流，并关联
+op=&gt;operation: 实现Runable接口创建两个线程任务分别接入输入输出流
+ope=&gt;operation: 创建线程跑任务
+s-&gt;o-&gt;op-&gt;ope-&gt;e
+</code></pre>
+
+<h2 id="toc_3">代码</h2>
+
+<pre><code class="language-Java">import java.io.IOException;
+import java.io.PipedInputStream;
+import java.io.PipedOutputStream;
+
+public class Java20160622_3 {
+    public static void main(String []args) throws IOException {
+        PipedInputStream input=new PipedInputStream();
+        PipedOutputStream output=new PipedOutputStream();
+        input.connect(output);
+        new Thread(new Input(input)).start();
+        new Thread(new Output(output)).start();
+    }
+    //继承Runable接口来实现多线程
+    static class Input implements Runnable{
+        private PipedInputStream in;
+        Input(PipedInputStream in){
+            this.in=in;
+        }
+        public void run(){
+                    //创建缓冲区来接收数据
+            byte[] buf=new byte[1024];
+            try {
+            //判断数据量
+                int len=in.read(buf);
+                //创建字符串接收数据
+                String s=new String(buf,0,len);
+                System.out.println(&quot;s=&quot;+s);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }finally {
+                try {
+                    in.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    static class Output implements Runnable{
+        private PipedOutputStream out;
+        Output(PipedOutputStream out){
+            this.out=out;
+        }
+        public void run(){
+            try {
+            //输出数据
+                out.write(&quot;我爱你&quot;.getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }finally {
+                try {
+                    out.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
+
+</code></pre>
+
+<h2 id="toc_4">总结</h2>
+
+<p>不止多听多看，要多写啊！</p>
 
 
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                   <a href="14649438014608.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2016/6/3</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='write.html'>文字</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
+    
 
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-              
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="14666823256897.html" 
+          title="Previous Post: 截取字节解码">&laquo; 截取字节解码</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="14664749598989.html" 
+          title="Next Post: 文件的切割和合并">文件的切割和合并 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- 多说评论框 start -->
+	<div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"caiyongjian"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
 
 
-			<div class="row">
-			  <div class="large-6 columns">
-			  <p class="text-left" style="padding-top:25px;">
-			   
-			  </p>
-			  </div>
-			  <div class="large-6 columns">
-			<p class="text-right" style="padding-top:25px;">
-			
-			</p>
-			  </div>
-			</div>
-		</div>
-	</div><!-- large 8 -->
+
 
  <div class="large-4 medium-4 columns">
   <div class="hide-for-small">

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  文字 - 蔡永坚的博客
+  截取字节解码 - 蔡永坚的博客
   
   </title>
   
@@ -92,69 +92,163 @@
        
 
  <script type="text/javascript">
-	$(function(){
-		$('#menu_item_index').addClass('is_active');
-	});
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
 </script>
 <div class="row">
-	<div class="large-8 medium-8 columns">
-		<div class="markdown-body home-categories">
-		
-			<div class="article">
-                <a class="clearlink" href="14649438014608.html">
-                
-                  <h1>晚安的话</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h2 id="toc_0">2016年06月15日</h2>
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>截取字节解码</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2016/6/23</span>
 
-<h2 id="toc_1">前言</h2>
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='java.html'>Java</a></span>
+           
+         
+          <span class="comments">
+            
 
-<p>刚开始在微博上发行这些句子时没有想到能坚持一年多，句子的来源多是喜欢的歌词、书和自己的遐想。发行的一年里也是磕磕绊绊，因为高三住宿的原因经常是在周末回去整理一星期的量然后每天晚上晚自修完陪她走到宿舍后回去一句一句发行。分开后也都删光了。只留下这篇草稿，虽然结果不了了之，但谨已这篇文字表示纪念。</p>
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h2 id="toc_0">2016年06月23日</h2>
+
+<h2 id="toc_1">问题</h2>
+
+<p>在GBK编码情况下，有一串字符串，字母混合汉字。由于汉字占两个字节，如果按字节数截取，截取刚刚好的数量，正常解码显示</p>
+
+<span id="more"></span><!-- more --> 
+
+<h2 id="toc_2">思路</h2>
+
+<ol>
+<li>获取字符串的长度</li>
+<li>设置要获取的字节长度</li>
+<li>用字节数组存储字符串</li>
+<li>判断截取的字节编码正负</li>
+<li>如果正就直接解码输出</li>
+<li>负数就往回遍历直到正数并计算个数</li>
+<li>取模2是0就直接输出，有余数就-1输出</li>
+</ol>
+
+<h2 id="toc_3">代码</h2>
+
+<pre><code class="language-Java">import java.io.UnsupportedEncodingException;
+
+public class Java20160623_1 {
+    public static void main(String[]args) throws UnsupportedEncodingException {
+        String str=new String(&quot;abc原来你也sdsd在这sds里s&quot;);
+        //获取字节串长度
+        int len=str.getBytes(&quot;GBK&quot;).length;
+        for (int x=1;x&lt;len;x++){
+        System.out.println(&quot;截取&quot;+x+&quot;个字节,结果是&quot;+getByte(str,x));
+    }
+    }
+
+    private static String getByte(String str,int len) throws UnsupportedEncodingException {
+        //创建数组存储字节串
+        byte[] buf=str.getBytes(&quot;GBK&quot;);
+        int count=0;
+        //遍历要截取的字节窜
+        for (int x=len-1;x&gt;=0;x--){
+            //大于0说明是单个字节
+            if (buf[x]&gt;0){
+                break;
+            }else{
+                //否则说明是半个中文
+                count++;
+            }
+        }
+        if (count%2==0){
+            //刚刚好字节输出
+            return new String(buf,0,len,&quot;GBK&quot;);
+        }else{
+            //否则倒退1位输出
+            return new String(buf,0,len-1,&quot;GBK&quot;);
+
+        }
+    }
+}
+</code></pre>
+
+<h2 id="toc_4">总结</h2>
+
+<p>编码解码问题需要根据编码表的特性分析从而进行解决。</p>
 
 
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                   <a href="14649438014608.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2016/6/3</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='write.html'>文字</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
+    
 
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-              
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="14666901979130.html" 
+          title="Previous Post: IO流总结">&laquo; IO流总结</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="14665651364495.html" 
+          title="Next Post: 管道流简例">管道流简例 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- 多说评论框 start -->
+	<div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"caiyongjian"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
 
 
-			<div class="row">
-			  <div class="large-6 columns">
-			  <p class="text-left" style="padding-top:25px;">
-			   
-			  </p>
-			  </div>
-			  <div class="large-6 columns">
-			<p class="text-right" style="padding-top:25px;">
-			
-			</p>
-			  </div>
-			</div>
-		</div>
-	</div><!-- large 8 -->
+
 
  <div class="large-4 medium-4 columns">
   <div class="hide-for-small">

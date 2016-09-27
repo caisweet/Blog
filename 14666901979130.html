@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  文字 - 蔡永坚的博客
+  IO流总结 - 蔡永坚的博客
   
   </title>
   
@@ -92,69 +92,142 @@
        
 
  <script type="text/javascript">
-	$(function(){
-		$('#menu_item_index').addClass('is_active');
-	});
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
 </script>
 <div class="row">
-	<div class="large-8 medium-8 columns">
-		<div class="markdown-body home-categories">
-		
-			<div class="article">
-                <a class="clearlink" href="14649438014608.html">
-                
-                  <h1>晚安的话</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h2 id="toc_0">2016年06月15日</h2>
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>IO流总结</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2016/6/23</span>
 
-<h2 id="toc_1">前言</h2>
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='java.html'>Java</a></span>
+           
+         
+          <span class="comments">
+            
 
-<p>刚开始在微博上发行这些句子时没有想到能坚持一年多，句子的来源多是喜欢的歌词、书和自己的遐想。发行的一年里也是磕磕绊绊，因为高三住宿的原因经常是在周末回去整理一星期的量然后每天晚上晚自修完陪她走到宿舍后回去一句一句发行。分开后也都删光了。只留下这篇草稿，虽然结果不了了之，但谨已这篇文字表示纪念。</p>
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h2 id="toc_0">2016年06月23日</h2>
+
+<h3 id="toc_1">从顶层来说分成字节流和字符流</h3>
+
+<span id="more"></span><!-- more -->
+
+<ol>
+<li>字节流是以字节为单位读取的流</li>
+<li>字符流是以字符为单位读取的流，适合操作文本类文件</li>
+</ol>
+
+<h3 id="toc_2">以输出输入来分类的话</h3>
+
+<ol>
+<li>InputStream和Reader：输入流</li>
+<li>OutputStream和Writer：输出流</li>
+</ol>
+
+<p>顶层类是接口，不能直接创建对象。所以有子类实现接口来实现具体功能和区分使用环境</p>
+
+<h3 id="toc_3">缓冲流提高效率</h3>
+
+<p>BufferedWriter<br/>
+BufferedReader</p>
+
+<p>BufferedInputStream<br/>
+BufferedInputStream</p>
+
+<p>利用装饰设计模式增加缓冲区，提高了效率。</p>
+
+<h3 id="toc_4">转换流</h3>
+
+<p>把字节流转换成字符流<br/>
+OutputStreamWriter<br/>
+InputStreamReader</p>
+
+<h3 id="toc_5">各种流</h3>
+
+<p>DataStream：操作的基本数据类型要它本身才能读取<br/>
+SequenceInputStream：可以同时操作多个流，两个流可以直接通过构造函数操作，多个流就枚举吧。<br/>
+PipedStream：可以多线程同时读写<br/>
+ObjectStream：可以存储对象同时序列化的话</p>
 
 
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                   <a href="14649438014608.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2016/6/3</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='write.html'>文字</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
+    
 
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-              
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="14672751205880.html" 
+          title="Previous Post: GET提交和POST提交的区别?">&laquo; GET提交和POST提交的区别?</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="14666823256897.html" 
+          title="Next Post: 截取字节解码">截取字节解码 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- 多说评论框 start -->
+	<div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"caiyongjian"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
 
 
-			<div class="row">
-			  <div class="large-6 columns">
-			  <p class="text-left" style="padding-top:25px;">
-			   
-			  </p>
-			  </div>
-			  <div class="large-6 columns">
-			<p class="text-right" style="padding-top:25px;">
-			
-			</p>
-			  </div>
-			</div>
-		</div>
-	</div><!-- large 8 -->
+
 
  <div class="large-4 medium-4 columns">
   <div class="hide-for-small">

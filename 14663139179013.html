@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  文字 - 蔡永坚的博客
+  删除多级目录 - 蔡永坚的博客
   
   </title>
   
@@ -92,69 +92,160 @@
        
 
  <script type="text/javascript">
-	$(function(){
-		$('#menu_item_index').addClass('is_active');
-	});
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
 </script>
 <div class="row">
-	<div class="large-8 medium-8 columns">
-		<div class="markdown-body home-categories">
-		
-			<div class="article">
-                <a class="clearlink" href="14649438014608.html">
-                
-                  <h1>晚安的话</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h2 id="toc_0">2016年06月15日</h2>
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>删除多级目录</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2016/6/19</span>
 
-<h2 id="toc_1">前言</h2>
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='java.html'>Java</a></span>
+           
+         
+          <span class="comments">
+            
 
-<p>刚开始在微博上发行这些句子时没有想到能坚持一年多，句子的来源多是喜欢的歌词、书和自己的遐想。发行的一年里也是磕磕绊绊，因为高三住宿的原因经常是在周末回去整理一星期的量然后每天晚上晚自修完陪她走到宿舍后回去一句一句发行。分开后也都删光了。只留下这篇草稿，虽然结果不了了之，但谨已这篇文字表示纪念。</p>
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h2 id="toc_0">2016年06月19日</h2>
+
+<h2 id="toc_1">问题</h2>
+
+<p>Java中不支持直接删除不为空的多级目录，所以要解决这个问题要曲线救国。</p>
+
+<span id="more"></span><!-- more -->
+
+<h2 id="toc_2">思路</h2>
+
+<ol>
+<li>创建一个File对象，内容是一个目录地址</li>
+<li>创建一个方法，专门用来遍历File对象数组，看是不是目录</li>
+<li>是目录的话，用递归调用方法继续遍历</li>
+<li>是文件的话，删除</li>
+<li>最后文件都删除之后，删除目录</li>
+<li>可以调用输出语句来判断有没有删除成功</li>
+</ol>
+
+<pre><code class="language-flow">st=&gt;start: 创建一个File对象
+e=&gt;end: 结束
+op=&gt;operation: 遍历
+opt=&gt;operation: 删除文件 
+cond=&gt;condition: 是否目录？
+delete=&gt;operation: 删除目录
+st-&gt;op-&gt;cond
+cond(yes)-&gt;op
+cond(no)-&gt;opt
+opt-&gt;delete-&gt;e
+</code></pre>
+
+<h2 id="toc_3">代码</h2>
+
+<pre><code class="language-Java">import java.io.File;
+
+public class Java20160619 {
+    public static void main(String[]args){
+        File dir = new File(&quot;/test&quot;);
+        deleteIt(dir);
+    }
+    public static void deleteIt(File dir) {
+        File[] files=dir.listFiles();
+      //遍历目录，如果遍历到的是目录，递归调用自身继续向下级目录遍历
+        for (File file:files) {
+            if (file.isDirectory()){
+                deleteIt(file);
+                //如果遍历到的是文件直接删除
+            }else{
+               System.out.println(file+&quot;:&quot;+file.delete());
+            }
+        }
+        //遍历结束后删除空目录
+        System.out.println(dir+&quot;:&quot;+dir.delete());
+    }
+}
+</code></pre>
+
+<h2 id="toc_4">总结：</h2>
+
+<p>终于回归本业了，希望解决一个又一个小问题然后慢慢成长了。语言只是工具，编程是思想。</p>
 
 
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                   <a href="14649438014608.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2016/6/3</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='write.html'>文字</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
+    
 
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-              
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="14664033786011.html" 
+          title="Previous Post: properties简例">&laquo; properties简例</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="14649438014608.html" 
+          title="Next Post: 晚安的话">晚安的话 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- 多说评论框 start -->
+	<div class="ds-thread"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"caiyongjian"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
 
 
-			<div class="row">
-			  <div class="large-6 columns">
-			  <p class="text-left" style="padding-top:25px;">
-			   
-			  </p>
-			  </div>
-			  <div class="large-6 columns">
-			<p class="text-right" style="padding-top:25px;">
-			
-			</p>
-			  </div>
-			</div>
-		</div>
-	</div><!-- large 8 -->
+
 
  <div class="large-4 medium-4 columns">
   <div class="hide-for-small">

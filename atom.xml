@@ -4,13 +4,898 @@
   <title><![CDATA[蔡永坚的博客]]></title>
   <link href="caiyongjian.net/atom.xml" rel="self"/>
   <link href="caiyongjian.net/"/>
-  <updated>2016-06-29T00:08:43+08:00</updated>
+  <updated>2016-09-27T19:23:28+08:00</updated>
   <id>caiyongjian.net/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[Java]]></title>
+    <link href="caiyongjian.net/14678183567678.html"/>
+    <updated>2016-07-06T23:19:16+08:00</updated>
+    <id>caiyongjian.net/14678183567678.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">基础</h2>
+
+<p>javac 编译java文件<br/>
+java 运行编译后的文件</p>
+
+<p>最小单位是类，最简单的类是空类。</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CSS]]></title>
+    <link href="caiyongjian.net/14672757283069.html"/>
+    <updated>2016-06-30T16:35:28+08:00</updated>
+    <id>caiyongjian.net/14672757283069.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">css和html相结合的方式</h2>
+
+<p>1,每一个html标签中都有一个style样式属性<br/>
+2,使用style标签的方式,一般都定义在head标签中<br/>
+3,使用@import导入css文件。使用css代码导入<br/>
+4,使用link导入。使用html链接</p>
+
+<p>优先级:<br/>
+由上到下,由外到内。优先级从低到高<br/>
+越具体的选择器优先级越高<br/>
+style属性&gt;id选择器&gt;类选择器&gt;标签选择器</p>
+
+<p>CSS代码格式:<br/>
+选择器名称{属性名:属性值; 属性名:属性值; &hellip;..}</p>
+
+<h2 id="toc_1">基本选择器:</h2>
+
+<p>就是指定CSS要作用的标签,那个标签的名称就是选择器。意为:选择哪个容器<br/>
+选择器共有三种<br/>
+a) html标签名选择器。使用的就是html的标签名<br/>
+b) class选择器。使用的就是标签中的class属性<br/>
+c) id选择器。使用的就是标签中的id属性<br/>
+每一个标签都定义了class属性和id属性。用于对标签进行标识,方便对标签进行操作。<br/>
+在定义中,多个标签的class属性值可以相同,而id值要唯一,因为该属性除了给css使用,<br/>
+还可以被js使用,id通常都是为了标示页面中一些特定区域使用的</p>
+
+<h2 id="toc_2">扩展选择器:</h2>
+
+<p>a)关联选择器<br/>
+选择器中的选择器<br/>
+标签是可以嵌套的,要让相同标签中的不同标签现实不同样式,就可以用此选择器<br/>
+例:<br/>
+p{ color:#00FF00; }<br/>
+p b{ color:#00FF000; }<br/>
+<p>P标签<b>你好哇</b>未来的你</p><br/>
+<p>呵呵</p></p>
+
+<p>b)组合选择器<br/>
+对多个不同选择器进行相同样式设置的时候应用此选择器<br/>
+p,div { color:#FF0000 }<br/>
+<p>p标签现实段落</p><br/>
+<div>DIV标签显示段落</div></p>
+
+<p>c)伪元素选择器<br/>
+其实就在html中预先定义好的一些选择器。称为伪元素,是CSS的术语。<br/>
+格式:标签名:伪元素.类名 标签名.类名:伪元素 都可以<br/>
+a:link 超链接未点击状态<br/>
+a:visited 被访问后的状态<br/>
+a:hover 光标移到超链接上的状态(未点击)<br/>
+a:active 点击超链接时的状态<br/>
+使用顺序 L - V - H - A<br/>
+p:first-line 段落的第一行文本<br/>
+p:first-letter 段落中的第一个字母<br/>
+:focus 具有焦点的元素</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[基本标签]]></title>
+    <link href="caiyongjian.net/14672754511222.html"/>
+    <updated>2016-06-30T16:30:51+08:00</updated>
+    <id>caiyongjian.net/14672754511222.html</id>
+    <content type="html"><![CDATA[
+<p><base><br/>
+href属性:指定网页中所有的超链接的目录。<br/>
+可以是本地目录,也可以是网络目录。注意值得结尾处一定要用/表示目录。<br/>
+只作用于相对路径的超链接文件。<br/>
+target属性:指定打开超链接的方式。如_blank表示所有的超链接都用新窗口打开显示</p>
+
+<p><meta><br/>
+name属性:网页的描述信息。当取keywords时,<br/>
+content属性的内容就作为搜索引擎的关键字进行搜索<br/>
+http-equiv属性:模拟HTTP协议的响应消息头。<br/>
+例:<br/>
+<meta http-equiv="refresh" content="3;url=http://wwww.sina.com.cn" /><br/>
+表示打开此页面3秒自动转到新浪页面</p>
+
+<p><link><br/>
+rel属性:指定目标文档与当前文档的关系<br/>
+type属性:文档类型<br/>
+media:指定目标文档在哪种设备上起作用<br/>
+例:<br/>
+<link rel="stylesheet" type="text/css" media="screen,print" href="a.css" /></p>
+
+<p><merquee><br/>
+让内容动起来<br/>
+direction属性: left right down up<br/>
+behavior属性: scroll alternate slide</p>
+
+<p><code>&lt;pre&gt;</code> 可以将文本内容按在代码区的样子显示在页面上</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[GET提交和POST提交的区别?]]></title>
+    <link href="caiyongjian.net/14672751205880.html"/>
+    <updated>2016-06-30T16:25:20+08:00</updated>
+    <id>caiyongjian.net/14672751205880.html</id>
+    <content type="html"><![CDATA[
+<p>1,<br/>
+            get提交,提交的信息都显示在地址栏中<br/>
+        post提交,提交的信息不显示在地址栏中</p>
+
+<p>2,<br/>
+        get提交,对于敏感的信息不安全<br/>
+        post提交,对于敏感信息安全</p>
+
+<p>3,<br/>
+        get提交,对于大数据不行,因为地址栏存储提交有限<br/>
+        post提交,可以提交大体积数据</p>
+
+<p>4,<br/>
+        get提交,将信息封装到了请求信息的请求行中<br/>
+        post提交,将信息封装到了请求体中</p>
+
+<h2 id="toc_0">在服务端的一个区别</h2>
+
+<p>如果出现将中文提交到tomcat服务器,服务器默认会用iso8859-1进行解码会出现乱码,通过ios8859-1进行编码,再用指定的中文码表解码,即可。<br/>
+这种方式对get提交和post提交都有效</p>
+
+<p>但是对于post提交方式提交的中文,还有另一种解决方法,就是直接使用服务端的一个对象<br/>
+        request对象的setCharacterEncoding方法直接设置指定的中文码表就可以将中文数据解析出来<br/>
+这个方法只对请求体中的数据进行解码</p>
+
+<p><strong>综上所述:表单提交,建议使用post</strong></p>
+
+<h2 id="toc_1">和服务端交互的三种方式:</h2>
+
+<p>1,地址栏输入url地址 get<br/>
+        2,超链接 get<br/>
+        3,表单 get和post</p>
+
+<p>如果在客户端进行增强型的校验(只要有一个组件内容是错误的,是无法进行提交的,只有全队才可以提交)<br/>
+        问,服务端收到数据后,还需要校验码?<br/>
+        需要,为了安全性</p>
+
+<p>如果服务端做了增强型的校验,客户端还需要校验码?<br/>
+        需要,因为要提高用户的上网体验效果,减轻服务器端的压力</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[IO流总结]]></title>
+    <link href="caiyongjian.net/14666901979130.html"/>
+    <updated>2016-06-23T21:56:37+08:00</updated>
+    <id>caiyongjian.net/14666901979130.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">2016年06月23日</h2>
+
+<h3 id="toc_1">从顶层来说分成字节流和字符流</h3>
+
+<span id="more"></span><!-- more -->
+
+<ol>
+<li>字节流是以字节为单位读取的流</li>
+<li>字符流是以字符为单位读取的流，适合操作文本类文件</li>
+</ol>
+
+<h3 id="toc_2">以输出输入来分类的话</h3>
+
+<ol>
+<li>InputStream和Reader：输入流</li>
+<li>OutputStream和Writer：输出流</li>
+</ol>
+
+<p>顶层类是接口，不能直接创建对象。所以有子类实现接口来实现具体功能和区分使用环境</p>
+
+<h3 id="toc_3">缓冲流提高效率</h3>
+
+<p>BufferedWriter<br/>
+BufferedReader</p>
+
+<p>BufferedInputStream<br/>
+BufferedInputStream</p>
+
+<p>利用装饰设计模式增加缓冲区，提高了效率。</p>
+
+<h3 id="toc_4">转换流</h3>
+
+<p>把字节流转换成字符流<br/>
+OutputStreamWriter<br/>
+InputStreamReader</p>
+
+<h3 id="toc_5">各种流</h3>
+
+<p>DataStream：操作的基本数据类型要它本身才能读取<br/>
+SequenceInputStream：可以同时操作多个流，两个流可以直接通过构造函数操作，多个流就枚举吧。<br/>
+PipedStream：可以多线程同时读写<br/>
+ObjectStream：可以存储对象同时序列化的话</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[截取字节解码]]></title>
+    <link href="caiyongjian.net/14666823256897.html"/>
+    <updated>2016-06-23T19:45:25+08:00</updated>
+    <id>caiyongjian.net/14666823256897.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">2016年06月23日</h2>
+
+<h2 id="toc_1">问题</h2>
+
+<p>在GBK编码情况下，有一串字符串，字母混合汉字。由于汉字占两个字节，如果按字节数截取，截取刚刚好的数量，正常解码显示</p>
+
+<span id="more"></span><!-- more --> 
+
+<h2 id="toc_2">思路</h2>
+
+<ol>
+<li>获取字符串的长度</li>
+<li>设置要获取的字节长度</li>
+<li>用字节数组存储字符串</li>
+<li>判断截取的字节编码正负</li>
+<li>如果正就直接解码输出</li>
+<li>负数就往回遍历直到正数并计算个数</li>
+<li>取模2是0就直接输出，有余数就-1输出</li>
+</ol>
+
+<h2 id="toc_3">代码</h2>
+
+<pre><code class="language-Java">import java.io.UnsupportedEncodingException;
+
+public class Java20160623_1 {
+    public static void main(String[]args) throws UnsupportedEncodingException {
+        String str=new String(&quot;abc原来你也sdsd在这sds里s&quot;);
+        //获取字节串长度
+        int len=str.getBytes(&quot;GBK&quot;).length;
+        for (int x=1;x&lt;len;x++){
+        System.out.println(&quot;截取&quot;+x+&quot;个字节,结果是&quot;+getByte(str,x));
+    }
+    }
+
+    private static String getByte(String str,int len) throws UnsupportedEncodingException {
+        //创建数组存储字节串
+        byte[] buf=str.getBytes(&quot;GBK&quot;);
+        int count=0;
+        //遍历要截取的字节窜
+        for (int x=len-1;x&gt;=0;x--){
+            //大于0说明是单个字节
+            if (buf[x]&gt;0){
+                break;
+            }else{
+                //否则说明是半个中文
+                count++;
+            }
+        }
+        if (count%2==0){
+            //刚刚好字节输出
+            return new String(buf,0,len,&quot;GBK&quot;);
+        }else{
+            //否则倒退1位输出
+            return new String(buf,0,len-1,&quot;GBK&quot;);
+
+        }
+    }
+}
+</code></pre>
+
+<h2 id="toc_4">总结</h2>
+
+<p>编码解码问题需要根据编码表的特性分析从而进行解决。</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[管道流简例]]></title>
+    <link href="caiyongjian.net/14665651364495.html"/>
+    <updated>2016-06-22T11:12:16+08:00</updated>
+    <id>caiyongjian.net/14665651364495.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">2016年06月22日</h2>
+
+<h2 id="toc_1">问题</h2>
+
+<p>用管道流读写文件</p>
+
+<span id="more"></span><!-- more --> 
+
+<h2 id="toc_2">思路</h2>
+
+<ol>
+<li>创建管道输入输出流，并关联</li>
+<li>实现Runable接口创建两个线程任务分别接入输入输出流</li>
+<li>创建线程跑任务</li>
+</ol>
+
+<pre><code class="language-flow">s=&gt;start: 开始
+e=&gt;end: 结束
+o=&gt;operation: 创建管道输入输出流，并关联
+op=&gt;operation: 实现Runable接口创建两个线程任务分别接入输入输出流
+ope=&gt;operation: 创建线程跑任务
+s-&gt;o-&gt;op-&gt;ope-&gt;e
+</code></pre>
+
+<h2 id="toc_3">代码</h2>
+
+<pre><code class="language-Java">import java.io.IOException;
+import java.io.PipedInputStream;
+import java.io.PipedOutputStream;
+
+public class Java20160622_3 {
+    public static void main(String []args) throws IOException {
+        PipedInputStream input=new PipedInputStream();
+        PipedOutputStream output=new PipedOutputStream();
+        input.connect(output);
+        new Thread(new Input(input)).start();
+        new Thread(new Output(output)).start();
+    }
+    //继承Runable接口来实现多线程
+    static class Input implements Runnable{
+        private PipedInputStream in;
+        Input(PipedInputStream in){
+            this.in=in;
+        }
+        public void run(){
+                    //创建缓冲区来接收数据
+            byte[] buf=new byte[1024];
+            try {
+            //判断数据量
+                int len=in.read(buf);
+                //创建字符串接收数据
+                String s=new String(buf,0,len);
+                System.out.println(&quot;s=&quot;+s);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }finally {
+                try {
+                    in.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    static class Output implements Runnable{
+        private PipedOutputStream out;
+        Output(PipedOutputStream out){
+            this.out=out;
+        }
+        public void run(){
+            try {
+            //输出数据
+                out.write(&quot;我爱你&quot;.getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }finally {
+                try {
+                    out.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
+
+</code></pre>
+
+<h2 id="toc_4">总结</h2>
+
+<p>不止多听多看，要多写啊！</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[文件的切割和合并]]></title>
+    <link href="caiyongjian.net/14664749598989.html"/>
+    <updated>2016-06-21T10:09:19+08:00</updated>
+    <id>caiyongjian.net/14664749598989.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">2016年06月21日</h2>
+
+<h2 id="toc_1">问题</h2>
+
+<p>需要一个能把文件切割成指定大小和合并起来的程序</p>
+
+<span id="more"></span><!-- more --> 
+
+<h2 id="toc_2">思路</h2>
+
+<h3 id="toc_3">切割</h3>
+
+<ol>
+<li>创建一个输入流读取要切割的文件</li>
+<li>定义切割的大小和存放路径</li>
+<li>用输出流切割文件并命名</li>
+<li>用配置文件记录下切割信息</li>
+</ol>
+
+<pre><code class="language-flow">s=&gt;start: 开始切
+e=&gt;end: 切割完 
+c=&gt;condition: 判断是否存在此目录
+o=&gt;operation: 创建目录
+op=&gt;operation: 读取要切割的文件,定义切割大小和存放路径
+oper=&gt;operation: 切割文件并命名并记录切割信息
+s-&gt;op-&gt;c(yes)-&gt;oper-&gt;e
+c(no)-&gt;o-&gt;oper
+</code></pre>
+
+<h3 id="toc_4">合并</h3>
+
+<ol>
+<li>读取要合并文件目录的配置文件</li>
+<li>读取要合并的文件</li>
+<li>创建集合装载流对象</li>
+<li>枚举集合</li>
+<li>创建序列流装载枚举</li>
+<li>用输出流遍历序列流并写出数据</li>
+</ol>
+
+<pre><code class="language-flow">s=&gt;start: 开始合并
+e=&gt;end: 合并成功
+e1=&gt;end: 合并失败
+c=&gt;condition: 判断是否存在配置文件
+o=&gt;operation: 读取配置文件
+co=&gt;condition: 判断合并文件数量和记录是否一致
+op=&gt;operation: 读取碎片，合并文件
+s-&gt;c(yes)-&gt;o-&gt;co(yes)-&gt;op-&gt;e
+c(no)-&gt;e1
+co(no)-&gt;e1
+</code></pre>
+
+<h2 id="toc_5">代码</h2>
+
+<h3 id="toc_6">切割</h3>
+
+<pre><code class="language-Java">import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class Java20160621_2 {
+        //指定切割大小
+    private static final int SIZE =1024*1024 ;
+
+    public static void main(String[] args) throws IOException {
+            //指定切割文件
+        File file = new File(&quot;Cannie - 遥远的歌.mp3&quot;);
+        FileInputStream fis = new FileInputStream(file);
+        byte[] buf=new byte[SIZE];
+        int len=0;
+        int count=1;
+        //指定存放目录
+        File dir=new File(&quot;/test&quot;);
+        if (!dir.exists()){
+            dir.mkdir();
+        }
+        FileOutputStream fos=null;
+        //按照切割大小开切
+        while ((len=fis.read(buf))!=-1){
+            fos=new FileOutputStream(new File(dir,(count++)+&quot;.part&quot;));
+            fos.write(buf,0,len);
+            fos.close();
+        }
+        //创建配置文件记录信息
+        Properties prop=new Properties();
+        FileOutputStream fis2=new FileOutputStream(new File(dir,count+&quot;.properties&quot;));
+        prop.setProperty(&quot;name&quot;,file.getName());
+        prop.setProperty(&quot;partcount&quot;,count-1+&quot;&quot;);
+        prop.store(fis2,&quot;file count info&quot;);
+
+
+
+        fos.close();
+        fis.close();
+    }
+}
+
+</code></pre>
+
+<h3 id="toc_7">合并</h3>
+
+<pre><code class="language-Java">import java.io.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.Properties;
+
+public class Java20160621_3 {
+    public static void main(String[]args) throws IOException {
+
+        //获取指定目录下的配置文件对象
+        File dir=new File(&quot;/test&quot;);
+        File[] files=dir.listFiles(new SuffixFilter(&quot;.properties&quot;));
+        if (files.length!=1){
+            throw new RuntimeException(&quot;我总感觉文件数目不对,要么不存在,要么数量太多&quot;);
+        }
+
+        //记录配置文件对象
+        File confie=files[0];
+
+        //获取该文件中的信息
+        Properties prop=new Properties();
+        FileInputStream fis=new FileInputStream(confie);
+        prop.load(fis);
+        String name=prop.getProperty(&quot;name&quot;);
+        int partcount=Integer.parseInt(prop.getProperty(&quot;partcount&quot;));
+
+        //获取该目录下的碎片文件
+        File[] parts=dir.listFiles(new SuffixFilter(&quot;.part&quot;));
+        if (parts.length!=partcount){
+            throw new RuntimeException(&quot;碎片数量不对劲&quot;);
+        }
+
+        //将碎片文件封装和流对象管理并存储到集合中
+        ArrayList&lt;FileInputStream&gt; al=new ArrayList&lt;FileInputStream&gt;();
+        FileInputStream f=null;
+        for(int i=1;i&lt;=partcount;i++){
+            f=new FileInputStream(new File(dir,i+&quot;.part&quot;));
+            al.add(f);
+//            f.close();
+        }
+
+        //将多个流合并成一个序列流
+        Enumeration en= Collections.enumeration(al);
+        SequenceInputStream sis=new SequenceInputStream(en);
+
+        //读写操作
+        FileOutputStream fos=new FileOutputStream(new File(dir,name));
+        int len=0;
+        byte[] b=new byte[1024];
+        while ((len=sis.read(b))!=-1){
+            fos.write(b,0,len);
+        }
+
+        sis.close();
+        fos.close();
+    }
+}
+
+</code></pre>
+
+<h2 id="toc_8">总结</h2>
+
+<p>顺便推荐了首歌，哟哟切克闹。只为了加深印象，多写写，总会有好处的。</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SequenceInputStream序列流简例]]></title>
+    <link href="caiyongjian.net/14664343048590.html"/>
+    <updated>2016-06-20T22:51:44+08:00</updated>
+    <id>caiyongjian.net/14664343048590.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">2016年06月21日</h2>
+
+<h2 id="toc_1">问题</h2>
+
+<p>合并3个txt文件</p>
+
+<span id="more"></span><!-- more --> 
+
+<h2 id="toc_2">思路</h2>
+
+<ol>
+<li>用集合装3个输入流</li>
+<li>枚举集合</li>
+<li>集合流装载枚举</li>
+<li>用输出流写文件</li>
+</ol>
+
+<pre><code class="language-flow">s=&gt;start: 开始
+e=&gt;end: 结束
+o=&gt;operation: 创建输入流
+op=&gt;operation: 创建集合装载输入流
+ope=&gt;operation: 枚举遍历集合
+oper=&gt;operation: 序列流装载枚举结构
+opera=&gt;operation: 用输出流写文件
+s-&gt;o-&gt;op-&gt;ope-&gt;oper-&gt;opera-&gt;e
+</code></pre>
+
+<h2 id="toc_3">代码</h2>
+
+<pre><code class="language-Java">import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.SequenceInputStream;
+import java.util.*;
+
+public class Java20160621_1 {
+   public static void main(String[]args) throws IOException {
+   //创建集合装载流对象
+       ArrayList&lt;FileInputStream&gt; al=new ArrayList&lt;FileInputStream&gt;();
+       for (int x=1;x&lt;=3;x++){
+           al.add(new FileInputStream(x+&quot;.txt&quot;));
+       }
+       //用枚举遍历集合
+       Enumeration&lt;FileInputStream&gt; en= Collections.enumeration(al);
+        //用序列流装载枚举
+        SequenceInputStream sis=new SequenceInputStream(en);
+        FileOutputStream fos=new FileOutputStream(&quot;1234.txt&quot;);
+        byte[] buf=new byte[1024];
+        int len=0;
+        //只要读到数据就写入文件
+        while ((len=sis.read(buf))!=-1){
+            fos.write(buf,0,len);
+        }
+        fos.close();
+        sis.close();
+    }
+}
+
+</code></pre>
+
+<h2 id="toc_4">总结</h2>
+
+<p>啊啊啊，啊啊啊啊，啊啊啊啊啊，请配上《千年等一回》的音乐。深夜敲代码的后遗症，这个问题不知道要说什么啊啊啊，有问题就留言吧吧吧。</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[获取指定后缀名文件的绝对路径]]></title>
+    <link href="caiyongjian.net/14664103287553.html"/>
+    <updated>2016-06-20T16:12:08+08:00</updated>
+    <id>caiyongjian.net/14664103287553.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">2016年06月20日</h2>
+
+<h2 id="toc_1">问题</h2>
+
+<p>想要知道某个文件夹下面是否有需要的后缀名文件，有就把文件的绝对路径记录下来，然后打印在文本文件中。</p>
+
+<span id="more"></span><!-- more --> 
+
+<h2 id="toc_2">思路</h2>
+
+<ol>
+<li>遍历目录</li>
+<li>判断文件后缀名，是就把文件添加到数组中</li>
+<li>把数组中的文件打印出绝对路径到文本文件中</li>
+</ol>
+
+<pre><code class="language-flow">st=&gt;start: 开始
+end=&gt;end: 结束
+op=&gt;operation: 遍历目录
+ope=&gt;operation: 记录文件
+co=&gt;condition: 是否目录？
+cond=&gt;condition: 是否要找的后缀名文件？
+st-&gt;op-&gt;co(yes)-&gt;op
+co(no)-&gt;cond(yes)-&gt;ope-&gt;end
+</code></pre>
+
+<h2 id="toc_3">代码</h2>
+
+<pre><code class="language-Java">
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Java20160620_2 {
+    public static void main(String []args) throws IOException {
+         File dir=new File(&quot;/test&quot;);
+         //用匿名内部类的方式重写过滤器，过滤以.mp3结尾的文件
+        FilenameFilter filter=new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                return name.endsWith(&quot;.mp3&quot;);
+            }
+        };
+        //创建一个集合来存储过滤后的文件
+        List&lt;File&gt; list=new ArrayList&lt;File&gt;();
+        getFiles(dir,filter,list);
+        wirteIt(list);
+    }
+
+    public static void wirteIt(List&lt;File&gt; list) throws IOException {
+        File f=new File(&quot;music.txt&quot;);
+        //创建缓冲区来写文件
+        BufferedWriter fw=new BufferedWriter(new FileWriter(f));
+        for (File file:list){
+        //把集合中存储的对象，获取绝对路径后写入
+           fw.append(file.getAbsolutePath());
+            fw.newLine();
+            fw.flush();
+        }
+        fw.close();
+    }
+
+    public static void getFiles(File dir, FilenameFilter filter, List&lt;File&gt; list) {
+        File[] files=dir.listFiles();
+        //遍历目录，是目录就递归调用自身继续向下级目录遍历
+        for (File file:files){
+            if (file.isDirectory()){
+                getFiles(file,filter,list);
+            }else{
+            //遍历到文件就获取名字用过滤器判断是否符合，符合就添加到集合中
+               if(filter.accept(file,file.getName())){
+                   list.add(file);
+               }
+            }
+        }
+    }
+}
+</code></pre>
+
+<h2 id="toc_4">总结</h2>
+
+<p>单单学习好像很容易忘记，自己想清楚思路，再自己写一遍，最后再注释一遍加深印象。这是我深爱的职业阿，加油阿！</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[properties简例]]></title>
+    <link href="caiyongjian.net/14664033786011.html"/>
+    <updated>2016-06-20T14:16:18+08:00</updated>
+    <id>caiyongjian.net/14664033786011.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">2016年06月20日</h2>
+
+<h2 id="toc_1">问题</h2>
+
+<p>判断运行的次数，如果超过5次就中断退出</p>
+
+<span id="more"></span><!-- more --> 
+
+<h2 id="toc_2">思路</h2>
+
+<ol>
+<li>要判断次数必须有一个计数器</li>
+<li>因为要计算运行次数的，所以计数器不能在内存中，否则每次都重置了</li>
+<li>可以使用properties配合输入流和输出流，通过读写文件来判断次数，从而中断程序</li>
+</ol>
+
+<pre><code class="language-flow">st=&gt;start: 开始
+e=&gt;end: 结束
+op=&gt;operation: 读取
+opt=&gt;operation: 创建配置文件
+stop=&gt;operation: 中断程序
+continue=&gt;operation: 计数器+1，程序正常运行
+cond=&gt;condition: 判断是否存在配置文件？
+if=&gt;condition: 判断次数是否大于5?
+st-&gt;cond(yes)-&gt;op-&gt;if(yes)-&gt;stop-&gt;e
+cond(no)-&gt;opt-&gt;op
+if(no)-&gt;continue-&gt;e
+</code></pre>
+
+<h2 id="toc_3">代码</h2>
+
+<pre><code class="language-Java">import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class Java20160620_1 {
+    public static void main(String[]args) throws IOException {
+        File file = new File(&quot;time.properties&quot;);
+        //判断配置文件是否存在，不存在就建立一个
+        if (!file.exists()){
+            file.createNewFile();
+        }
+        FileInputStream fis = new FileInputStream(file);
+        int count=0;
+        Properties prop=new Properties();
+        prop.load(fis);
+        String value=prop.getProperty(&quot;time&quot;);
+        //判断配置文件中是否存在time相对于值，存在就读取
+        if (value!=null){
+            count=Integer.parseInt(value);
+            //如果次数大于5，就抛出运行时异常并中断程序
+            if (count&gt;=5){
+                throw new RuntimeException(&quot;运行次数已到限制!&quot;);
+            }
+        }
+        count++;
+        System.out.println(&quot;这是软件第&quot;+count+&quot;次运行&quot;);
+        prop.setProperty(&quot;time&quot;,count+&quot;&quot;);
+        FileOutputStream fos=new FileOutputStream(file);
+        //将次数写进配置文件
+        prop.store(fos,&quot;&quot;);
+        fis.close();
+        fos.close();
+    }
+}
+</code></pre>
+
+<h2 id="toc_4">总结</h2>
+
+<p>因为只是一个数字的读取，所以文件格式没整理。如果数据一多，xml文件的好处就出来了，就当做是管中窥豹吧。</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[删除多级目录]]></title>
+    <link href="caiyongjian.net/14663139179013.html"/>
+    <updated>2016-06-19T13:25:17+08:00</updated>
+    <id>caiyongjian.net/14663139179013.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">2016年06月19日</h2>
+
+<h2 id="toc_1">问题</h2>
+
+<p>Java中不支持直接删除不为空的多级目录，所以要解决这个问题要曲线救国。</p>
+
+<span id="more"></span><!-- more -->
+
+<h2 id="toc_2">思路</h2>
+
+<ol>
+<li>创建一个File对象，内容是一个目录地址</li>
+<li>创建一个方法，专门用来遍历File对象数组，看是不是目录</li>
+<li>是目录的话，用递归调用方法继续遍历</li>
+<li>是文件的话，删除</li>
+<li>最后文件都删除之后，删除目录</li>
+<li>可以调用输出语句来判断有没有删除成功</li>
+</ol>
+
+<pre><code class="language-flow">st=&gt;start: 创建一个File对象
+e=&gt;end: 结束
+op=&gt;operation: 遍历
+opt=&gt;operation: 删除文件 
+cond=&gt;condition: 是否目录？
+delete=&gt;operation: 删除目录
+st-&gt;op-&gt;cond
+cond(yes)-&gt;op
+cond(no)-&gt;opt
+opt-&gt;delete-&gt;e
+</code></pre>
+
+<h2 id="toc_3">代码</h2>
+
+<pre><code class="language-Java">import java.io.File;
+
+public class Java20160619 {
+    public static void main(String[]args){
+        File dir = new File(&quot;/test&quot;);
+        deleteIt(dir);
+    }
+    public static void deleteIt(File dir) {
+        File[] files=dir.listFiles();
+      //遍历目录，如果遍历到的是目录，递归调用自身继续向下级目录遍历
+        for (File file:files) {
+            if (file.isDirectory()){
+                deleteIt(file);
+                //如果遍历到的是文件直接删除
+            }else{
+               System.out.println(file+&quot;:&quot;+file.delete());
+            }
+        }
+        //遍历结束后删除空目录
+        System.out.println(dir+&quot;:&quot;+dir.delete());
+    }
+}
+</code></pre>
+
+<h2 id="toc_4">总结：</h2>
+
+<p>终于回归本业了，希望解决一个又一个小问题然后慢慢成长了。语言只是工具，编程是思想。</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[晚安的话]]></title>
