@@ -16,7 +16,6 @@ document.addEventListener('YixinJSBridgeReady', function() {//易信
     }, false);
 document.addEventListener("touchstart",play, false);
 }
-audioAutoPlay('Jaudio');
 </script>
     <head>
         <title>To：syuu</title>
@@ -24,7 +23,7 @@ audioAutoPlay('Jaudio');
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
-    <body>
+    <body onload="audioAutoPlay('Jaudio');">
         <div class="note-wrapper">
 <p>-“圣诞节一天都没课。”</p>
 <p>-“没人约你上课吗？”</p>
