@@ -68,10 +68,11 @@
 
 <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
-       
-       <li><a href="index.html">HOME</a></li>
-    <li><a href="archives.html">Archives</a></li>
-    <li><a href="about.html">ABOUT</a></li>
+        
+        <li><a target="self" href="index.html">Home</a></li>
+        
+        <li><a target="_self" href="archives.html">Archives</a></li>
+        
 
     <li><label>Categories</label></li>
 
@@ -170,16 +171,27 @@
       </div>
       <div class="comments-wrap">
         <div class="share-comments">
-          <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+          <div id="disqus_thread"></div>
 <script>
-  var cloudTieConfig = {
-    url: document.location.href, 
-    sourceId: "",
-    productKey: "c65ff336127e4226b8fc8e2d10e6e79b",
-    target: "cloud-tie-wrapper"
-  };
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://EXAMPLE.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
 </script>
-<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59ca9e39607abdd3"></script>                             
 
           
 
@@ -197,11 +209,10 @@
     <div id="sidebar" class="sidebar">
           <div id="site-info" class="site-info">
             
+                <div class="site-a-logo"><img src="asset/img/psb.JPG" /></div>
+            
                 <h1>蔡永坚的博客</h1>
-                  <div class="site-des"></div>
-                <div class="site-a-logo"><img src="asset/img/psb.jpg"></div>
-                    <h1>蔡永坚</h1>
-                      <div class="site-des">be a better man</div>
+                <div class="site-des">be a better man</div>
                 <div class="social">
 
 
@@ -209,16 +220,13 @@
 
 
 
-
-
-
-
-
-  <!-- <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a> -->
-  <a class="weibo" target="_blank" href="http://www.weibo.com/944208351" title="Weibo">Weibo</a>
-  <a class="twitter" target="_blank" href="https://twitter.com/caiyongjian7" title="Twitter">Twitter</a>
-  <a class="instagram" target="<_blank></_blan>" href="https://www.instagram.com/caiyongjian/" title="Instagram">Instagram</a>
-  <a class="github" target="_blank" href="https://github.com/caisweet" title="GitHub">GitHub</a>
+<a target="_blank" class="instagram" href="https://www.instagram.com/caiyongjian/" title="Instagram">Instagram</a>
+<a target="_blank" class="weibo" href="http://weibo.com/944208351" title="weibo">Weibo</a>
+<a target="_blank" class="twitter" target="_blank" href="https://twitter.com/caiyongjian7" title="Twitter">Twitter</a>
+<a target="_blank" class="github" target="_blank" href="https://github.com/caisweet" title="GitHub">GitHub</a>
+<a target="_blank" class="email" href="mailto:caiyongjian7@gmail.com" title="Email">Email</a>
+  <!--<a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>-->
+                
               	 </div>
           	</div>
 
@@ -237,7 +245,7 @@
             <a href="write.html"><strong>文字</strong></a>
         
             <a href="%E5%BD%B1%E8%AF%84.html"><strong>影评</strong></a>
-        
+         
         </p>
 
 
@@ -310,7 +318,7 @@
 		      
 		  
 		      
-		  
+		   
 		  		</ul>
                 </div>
               </div>
@@ -319,9 +327,10 @@
 </div><!-- large 4 -->
 
 </div><!-- row -->
+
  <div class="page-bottom clearfix">
   <div class="row">
-   <p class="copyright">Copyright &copy; 2011-2014
+    <p class="copyright">Copyright &copy; 2011-2014
 This <a target="_blank" href="http://caiyongjian.net/letter.html">letter</a>&nbsp;
 is for <a target="_blank" href="http://weibo.com/u/2463324911">weine</a> to thank you for your love.
       <a target="_blank" href="http://www.miitbeian.gov.cn/">粤ICP备17039154号</a></p>
@@ -332,8 +341,8 @@ is for <a target="_blank" href="http://weibo.com/u/2463324911">weine</a> to than
       </div>
     </div>
 
-
-
+  
+    
 
     <script src="asset/js/foundation.min.js"></script>
     <script>
@@ -349,7 +358,7 @@ is for <a target="_blank" href="http://weibo.com/u/2463324911">weine</a> to than
       $(window).load(function(){
           fixSidebarHeight();
       });
-
+     
     </script>
 
     <script src="asset/chart/all-min.js"></script><script type="text/javascript">$(function(){    var mwebii=0;    var mwebChartEleId = 'mweb-chart-ele-';    $('pre>code').each(function(){        mwebii++;        var eleiid = mwebChartEleId+mwebii;        if($(this).hasClass('language-sequence')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = Diagram.parse($(this).text());            diagram.drawSVG(eleiid,{theme: 'simple'});        }else if($(this).hasClass('language-flow')){            var ele = $(this).addClass('nohighlight').parent();            $('<div id="'+eleiid+'"></div>').insertAfter(ele);            ele.hide();            var diagram = flowchart.parse($(this).text());            diagram.drawSVG(eleiid);        }    });});</script>
